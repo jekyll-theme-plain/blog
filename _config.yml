@@ -1,2 +1,9 @@
-include: ['_pages']
-permalink: /:title
+include:
+  - _pages
+
+defaults:
+  - scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      permalink: /:basename
