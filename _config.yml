@@ -1,11 +1,5 @@
 theme: ""
 
 collections:
-  - articles
-
-defaults:
-  - scope:
-      path: '_articles'
-      type: pages
-    values:
-      permalink: /:basename
+  articles:
+    output: true
