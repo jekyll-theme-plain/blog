@@ -2,7 +2,7 @@
 <ul>
 {% for article in site.html_pages %}
   <li>
-    <a href="{{ article.url }}">{{ article.title }}</a>
+    <a href="{{ article.url }}">{{ article.basename }}</a>
   </li>
 {% endfor %}
 </ul>
