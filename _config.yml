@@ -1,9 +1,6 @@
-include:
-  - _pages
-
 defaults:
   - scope:
-      path: '_pages'
+      path: ''
       type: pages
     values:
-      permalink: /:title
+      permalink: /:basename
