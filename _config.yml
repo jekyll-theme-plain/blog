@@ -1,5 +1,3 @@
-theme: null
-
 collections:
   articles:
     output: true
