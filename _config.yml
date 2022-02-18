@@ -1,9 +1,9 @@
 include:
-  - articles
+  - _pages
 
 defaults:
   - scope:
-      path: ''
+      path: '_pages'
       type: pages
     values:
       permalink: /:title
