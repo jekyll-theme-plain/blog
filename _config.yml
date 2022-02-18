@@ -1,4 +1,4 @@
-theme: none
+theme: null
 
 collections:
   articles:
