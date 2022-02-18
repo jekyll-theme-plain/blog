@@ -6,4 +6,4 @@ defaults:
       path: '_pages'
       type: pages
     values:
-      permalink: /:basename
+      permalink: /:title
