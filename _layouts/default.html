@@ -5,6 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <pre>{{ page.content }}</pre>
+    <pre>{{ page.content | xml_escape }}</pre>
   </body>
 </html>
