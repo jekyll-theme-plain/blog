@@ -3,7 +3,7 @@ collections:
 
 defaults:
   - scope:
-      path: ''
+      path: '_articles'
       type: pages
     values:
       permalink: /:basename
