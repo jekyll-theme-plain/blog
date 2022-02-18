@@ -3,4 +3,5 @@ defaults:
       path: ''
       type: pages
     values:
+      layout: default
       permalink: /:basename
