@@ -6,9 +6,9 @@
   </head>
   <body>
     <ul>
-    {% for page in site.pages %}
+    {% for article in site.articles %}
       <li>
-        <a href="{{ page }}">{{ page }}</a>
+        <a href="{{ article.title }}">{{ article.title }}</a>
       </li>
     {% endfor %}
     </ul>
