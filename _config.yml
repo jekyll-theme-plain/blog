@@ -6,6 +6,7 @@ defaults:
     values:
       categories: posts
       permalink: /:basename
+      layout: page
 
 optional_front_matter:
   remove_originals: true
