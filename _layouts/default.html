@@ -4,9 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.layout == 'home' %}{{ site.title }}{% else %}{{ page.url | absolute_url }}{% endif %}</title>
+    <style>
+      pre {
+        word-break: break-all;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        line-break: anywhere;
+        white-space: pre-wrap;
+        white-space: break-spaces;
+      }
+    </style>
   </head>
   <body>
-    <pre style="white-space: pre-wrap; white-space: break-spaces;">{{ content | rstrip }}
+    <pre>{{ content | rstrip }}
 </pre>
   </body>
 </html>
