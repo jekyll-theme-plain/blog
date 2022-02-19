@@ -5,8 +5,8 @@ defaults:
       path: posts
     values:
       categories: posts
-      permalink: /:basename
       layout: page
+      permalink: /:basename
 
 optional_front_matter:
   remove_originals: true
