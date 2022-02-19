@@ -3,6 +3,3 @@ defaults:
        path: posts
      values:
        categories: [posts]
-
-optional_front_matter:
-  remove_originals: true
