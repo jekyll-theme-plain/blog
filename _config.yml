@@ -4,3 +4,6 @@ defaults:
      values:
        categories: [posts]
        permalink: /:basename
+
+optional_front_matter:
+  remove_originals: true
