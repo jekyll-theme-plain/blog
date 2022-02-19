@@ -2,7 +2,7 @@
 <ul>
 {% for page in site.pages %}
   <li>
-    <a href="{{ page.url }}">{{ page.url }}</a>
+    <a href="{{ page.url }}">{{ page.url }} {{ page.categories }}</a>
   </li>
 {% endfor %}
 </ul>
