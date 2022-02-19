@@ -1,8 +1,8 @@
 defaults:
    - scope:
-       path: articles
+       path: posts
      values:
-       categories: [articles]
+       categories: [posts]
 
 optional_front_matter:
   remove_originals: true
