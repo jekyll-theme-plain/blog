@@ -14,3 +14,5 @@ https://ja.wikipedia.org/wiki/%E5%8F%8C%E5%AD%90%E7%B4%A0%E6%95%B0%E5%8F%8C%E5%A
 が、
     
       定休日でした。
+
+They say the fishing is excellent at Lake Chargoggagoggmanchauggagoggchaubunagungamaugg, though I've never been there myself. (overflow-wrap: break-word)
