@@ -2,7 +2,7 @@ defaults:
    - scope:
        path: articles
      values:
-       category: articles
+       categories: [articles]
 
 optional_front_matter:
   remove_originals: true
