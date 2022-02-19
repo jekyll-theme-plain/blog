@@ -2,7 +2,7 @@ defaults:
   - scope:
       path: posts
     values:
-      categories: [posts]
+      categories: posts
       permalink: /:basename
 
 optional_front_matter:
