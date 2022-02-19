@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.layout == 'home' %}{{ site.title }}{% else %}{{ page.url | absolute_url }}{% endif %}</title>
   </head>
   <body>
-    <pre>{{ content | rstrip }}
+    <pre style="white-space: pre-wrap;">{{ content | rstrip }}
 </pre>
   </body>
 </html>
