@@ -46,7 +46,7 @@ Or better yet, unsigned long long int (aka unsigned long long) should be used, w
 
 For main:
 - For reusability, main should be factored out to “a function that returns a vector of primes less than or equal to a given natural number”.
-It should only iterate over odd numbers, since all primes except 2 are odd.
+- It should only iterate over odd numbers, since all primes except 2 are odd.
 
 For is_prime:
 - It is enough to trial divide by only the primes in [2, n – 1]. Because if n is divisible by a composite number, then it must already be divisible by its prime factor.
