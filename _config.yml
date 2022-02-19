@@ -3,3 +3,4 @@ defaults:
        path: posts
      values:
        categories: [posts]
+       permalink: /:basename
