@@ -1,6 +1,8 @@
-collections:
-  articles:
-    output: true
+defaults:
+   - scope:
+       path: articles
+     values:
+       category: articles
 
 optional_front_matter:
   remove_originals: true
