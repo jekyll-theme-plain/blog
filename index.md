@@ -1,8 +1,10 @@
 <h1>{{ site.title }}</h1>
 <ul>
-{% for article in site.categories.articles %}
+{% for page in site.pages %}
+{% if page.categories contains 'articles' %}
   <li>
-    <a href="{{ article.url }}">{{ article.url }}</a>
+    <a href="{{ page.url }}">{{ page.url }}</a>
   </li>
+{% endif %}
 {% endfor %}
 </ul>
