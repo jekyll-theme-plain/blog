@@ -1,8 +1,8 @@
 <h1>{{ site.title }}</h1>
 <ul>
-{% for article in site.html_pages %}
+{% for article in site.articles %}
   <li>
-    <a href="{{ article.url }}">{{ article.id }}</a>
+    <a href="{{ article.url }}">{{ article.url }}</a>
   </li>
 {% endfor %}
 </ul>
