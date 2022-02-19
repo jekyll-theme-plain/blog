@@ -1,9 +1,9 @@
 defaults:
-   - scope:
-       path: posts
-     values:
-       categories: [posts]
-       permalink: /:basename
+  - scope:
+      path: posts
+    values:
+      categories: [posts]
+      permalink: /:basename
 
 optional_front_matter:
   remove_originals: true
