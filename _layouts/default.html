@@ -1,8 +1,9 @@
-{%- if page.layout == 'home' -%}
-  {%- assign is_home = true -%}
-{%- elsif page.layout == 'page' -%}
-  {%- assign is_page = true -%}
-{%- endif -%}
+{%- case page.layout -%}
+  {%- when 'home' -%}
+    {%- assign is_home = true -%}
+  {%- when 'page' -%}
+    {%- assign is_page = true -%}
+{%- endcase -%}
 
 {%- assign absolute_page_url = page.url | absolute_url -%}
 
