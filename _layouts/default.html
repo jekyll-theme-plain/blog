@@ -5,7 +5,7 @@
     {%- assign is_page = true -%}
 {%- endcase -%}
 
-{%- assign absolute_page_url = page.url | absolute_url -%}
+{%- assign canonical_url = page.url | absolute_url -%}
 
 <!DOCTYPE html>
 <html>
@@ -16,10 +16,10 @@
       {%- if is_home -%}
         {{- site.title -}}
       {%- else -%}
-        {{- absolute_page_url -}}
+        {{- canonical_url -}}
       {%- endif -%}
     </title>
-    <link rel="canonical" href="{{ absolute_page_url }}">
+    <link rel="canonical" href="{{ canonical_url }}">
     <link rel="license" href="{{ site.license_url }}">
     {%- if is_page %}
     <style>
