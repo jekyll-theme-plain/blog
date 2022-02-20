@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html>{% assign is_home = page.layout == 'home' %}
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{{ content }}  </body>
+{% if is_home %}{% include home-head.html %}{% else %}{% include page-head.html %}{% endif %}  </head>
+  <body>
+    {{ content }}  </body>
 </html>
