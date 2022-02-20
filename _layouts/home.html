@@ -2,9 +2,6 @@
 layout: default
 ---
 
-    <title>{{ site.title }}</title>
-  </head>
-  <body>
     <ul>{% for page in site.pages %}{% if page.categories contains 'posts' %}
       <li>{% assign url = page.url | remove_first: '/' %}
         <a href="{{ url }}">{{ url }}</a>
