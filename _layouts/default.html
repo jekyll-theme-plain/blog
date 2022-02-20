@@ -1,16 +1,39 @@
 {%- if page.layout == 'home' -%}
   {%- assign is_home = true -%}
+{%- elsif page.layout == 'page' -%}
+  {%- assign is_page = true -%}
 {%- endif -%}
+
+{%- assign absolute_page_url = page.url | absolute_url -%}
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{% if is_home -%}
-  {%- include home-head.html -%}
-{%- else -%}
-  {%- include page-head.html -%}
-{%- endif %}  </head>
+    <title>
+      {%- if is_home -%}
+        {{- site.title -}}
+      {%- else -%}
+        {{- absolute_page_url -}}
+      {%- end -%}
+    </title>
+    <link rel="canonical" href="{{ absolute_page_url }}">
+    <link rel="license" href="{{ site.license_url }}">
+    {%- if is_page -%}
+    <style>
+      pre {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        white-space: pre-wrap;
+        white-space: break-spaces;
+      }
+    </style>
+    {%- endif %}
+  </head>
   <body>
 {{ content }}  </body>
 </html>
