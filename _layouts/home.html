@@ -2,6 +2,7 @@
 layout: default
 ---
 
+    <h1>{{- site.pages | inspect -}}</h1>
     <ul>
 {%- for page in site.pages -%}
   {%- if page.categories contains 'posts' -%}
