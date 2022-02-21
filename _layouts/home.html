@@ -2,13 +2,13 @@
 layout: default
 ---
 
-    <h1>{{- site.pages | inspect -}}</h1>
     <ul>
 {%- for page in site.pages -%}
   {%- if page.categories contains 'posts' -%}
     {%- assign url = page.url | remove_first: '/' %}
       <li>
         <a href="{{ url }}">{{ url }}</a>
+        <b>{{- page | inspect -}}</b>
       </li>
   {%- endif -%}
 {%- endfor %}
