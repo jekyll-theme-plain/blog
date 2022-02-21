@@ -1,8 +1,6 @@
 ---
 date: test
 ---test
----
-title: unko
----
+title:unko
 
 howdy world
