@@ -9,7 +9,7 @@ layout: default
         {%- if dir == 'posts' %}
       <li>
           {%- assign url = page.url | remove_first: '/' %}
-        <a href="{{- url -}}"{%- if page.date -%} data-date="{{- page.date | date_to_xmlschema -}}"{%- end -%}>{{- url -}}</a>
+        <a href="{{- url -}}"{%- if page.date -%} data-date="{{- page.date | date_to_xmlschema -}}"{%- endif -%}>{{- url -}}</a>
       </li>
         {%- endif -%}
       {%- endfor %}
