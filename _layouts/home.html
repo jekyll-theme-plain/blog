@@ -4,9 +4,9 @@ layout: default
 
     <ul>
       {%- for page in site.pages -%}
-        {%- if page.categories contains 'posts' -%}
-          {%- assign url = page.url | remove_first: '/' %}
+        {%- if page.categories contains 'posts' %}
       <li>
+          {%- assign url = page.url | remove_first: '/' %}
         <a href="{{ url }}">{{ url }}</a>
       </li>
         {%- endif -%}
