@@ -4,8 +4,8 @@ layout: default
 
     <ul>
       {%- comment -%}
-        Sort the pages in order of oldest to newest date, with those with no date (nil date) last, and reverse it.
-        The result is that the ones with no date come first, followed by the ones with the newest date.
+        Sort the pages in order of earliest to latest date, with those with no date (nil date) last, and reverse it.
+        The result is that the ones with no date come first, followed by the ones with the latest date.
       {%- endcomment -%}
       {%- assign pages_by_date = site.pages | sort: 'date', 'last' | reverse -%}
 
