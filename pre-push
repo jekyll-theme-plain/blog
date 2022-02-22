@@ -46,7 +46,7 @@ for filename in os.listdir(post_dir):
 
             f.write(content)
 
-os.system("git commit -am '' --allow-empty-message")
+os.system("git commit -am 'Insert date automatically by pre-push'")
 os.system("git push --no-verify origin main")
 print("The push was successful. Please ignore the following error message.")
 sys.exit(1)
