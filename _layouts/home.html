@@ -15,8 +15,8 @@ layout: default
         {%- if dir == 'posts' %}
       <li>
           {%- assign url = page.url | remove_first: '/' %}
-        <a href="{{- url -}}"{%- if page.date %} data-date="{{- page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -}}"{%- endif -%}>{{- url -}}</a>
-        <b>{{- page | inspect -}}</b>
+          {%- assign title = page.name | remove_first: '.md' %}
+        <a href="{{- url -}}"{%- if page.date %} data-date="{{- page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -}}"{%- endif -%}>{{- title -}}</a>
       </li>
         {%- endif -%}
       {%- endfor %}
