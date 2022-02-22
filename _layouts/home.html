@@ -3,8 +3,8 @@ layout: default
 ---
 
     <ul>
-      {%- assign pages_by_date = site.pages | sort: 'date' | reverse -%}
-      {%- for page in pages_by_date -%}
+      {%- assign sorted_pages = site.pages | sort: 'date' | reverse -%}
+      {%- for page in sorted_pages -%}
         {%- assign dir = page.path | split: '/' | first -%}
         {%- if dir == 'posts' %}
       <li>
