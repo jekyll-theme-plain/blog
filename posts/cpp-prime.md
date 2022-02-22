@@ -1,3 +1,7 @@
+---
+date: 2022-02-19 07:53:26 +0000
+---
+
 I have been re-learning programming lately using C++.
 
 After Hello World, I wrote a simple program about prime numbers.
