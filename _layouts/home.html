@@ -8,7 +8,7 @@ layout: default
         {%- if dir == 'posts' %}
       <li>
           {%- assign url = page.url | remove_first: '/' %}
-        <a href="{{ url }}" data-date="{{ page.date }}">{{ url }}</a>
+        <a href="{{ url }}"{%- if page.date -%} data-date="{{ page.date }}"{%- end -%}>{{ url }}</a>
       </li>
         {%- endif -%}
       {%- endfor %}
