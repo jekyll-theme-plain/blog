@@ -4,10 +4,8 @@ layout: default
 
     <ul>
       {%- assign pages_by_date = site.pages | sort: 'date' -%}
-
       {%- for page in pages_by_date -%}
         {%- assign dir = page.path | split: '/' | first -%}
-
         {%- if dir == 'posts' %}
       <li>
           {%- assign url = page.url | remove_first: '/' %}
