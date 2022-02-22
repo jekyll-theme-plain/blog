@@ -1,3 +1,6 @@
+#
+# Place this script as .git/hooks/pre-push.
+#
 #!/usr/bin/env python
 import os
 import os.path
