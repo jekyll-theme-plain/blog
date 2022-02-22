@@ -3,12 +3,12 @@ layout: default
 ---
 
     <ul>
-      {%- for page in site.pages -%}
+      {%- for page in site.pages | sort: 'date' -%}
         {%- assign dir = page.path | split: '/' | first -%}
         {%- if dir == 'posts' %}
       <li>
           {%- assign url = page.url | remove_first: '/' %}
-        <a href="{{ url }}">{{ url }}</a>
+        <a href="{{ url }}" data-date="{{ page.date }}">{{ url }}</a>
       </li>
         {%- endif -%}
       {%- endfor %}
