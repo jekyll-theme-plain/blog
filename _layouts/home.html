@@ -8,6 +8,7 @@ layout: default
       <li>
           {%- assign url = page.url | remove_first: '/' %}
         <a href="{{ url }}">{{ url }}</a>
+        <b>{{- page | inspect -}}</b>
       </li>
         {%- endif -%}
       {%- endfor %}
