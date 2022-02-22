@@ -4,11 +4,11 @@ layout: default
 
     <ul>
       {%- for page in site.pages -%}
-        {%- if page.categories contains 'posts' %}
+        {%- assign dir = page.path | split: '/' | first -%}
+        {%- if dir == 'posts' %}
       <li>
           {%- assign url = page.url | remove_first: '/' %}
         <a href="{{ url }}">{{ url }}</a>
-        <b>{{- page | inspect -}}</b>
       </li>
         {%- endif -%}
       {%- endfor %}
