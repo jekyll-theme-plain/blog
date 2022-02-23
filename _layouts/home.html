@@ -17,7 +17,7 @@ layout: default
       <li>
           {%- assign url = page.url | remove_first: '/' -%}
           
-          {%- assign data_date = page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
+          {%- assign date = page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
 
           {%- comment -%}
             Use the filename with the extension removed as the title.
@@ -31,7 +31,7 @@ layout: default
           {%- assign end = splits | size | minus: 1 -%}
           {%- assign title = splits | slice: 0, end | join: '.' %}
         <a href="{{- url -}}"
-           {%- if page.date %} data-date="{{- data_date -}}"{%- endif -%}
+           {%- if page.date %} data-date="{{- date -}}"{%- endif -%}
         >
           {{- title -}}
         </a>
