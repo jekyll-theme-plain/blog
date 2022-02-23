@@ -6,7 +6,7 @@ defaults:
   - scope:
       path: posts
     values:
-      categories: posts unko
+      categories: [posts, unko]
       layout: page
       permalink: /:basename
 
