@@ -24,11 +24,10 @@ layout: default
 
           {%- comment -%}
             Remove the extension from the filename and use it as the title.
+          {%- endcomment -%}
           {%- assign splits = page.name | split: '.' -%}
           {%- assign end = splits | size | minus: 1 -%}
           {%- assign title = splits | slice: 0, end | join: '.' %}
-          {%- endcomment -%}
-          {%- assign title = page.url | remove_first: '/' | url_decode -%}
         <a href="{{- url -}}"
            {%- if page.date %} data-date="{{- date -}}"{%- endif -%}
         >
