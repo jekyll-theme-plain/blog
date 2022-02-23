@@ -17,6 +17,7 @@ layout: default
           {%- assign url = page.url | remove_first: '/' %}
           {%- assign title = page.name | remove_first: '.md' %}
         <a href="{{- url -}}"{%- if page.date %} data-date="{{- page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -}}"{%- endif -%}>{{- title -}}</a>
+        <b>{{- page | inspect -}}</b>
       </li>
         {%- endif -%}
       {%- endfor %}
