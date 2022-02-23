@@ -14,7 +14,7 @@ layout: default
       <li>
         <b>{{- page | inspect -}}</b>
       </li>
-        {%- if page.categories contains 'posts' %}
+        {%- if page.layout == 'page' %}
       <li>
           {%- assign url = page.url | remove_first: '/' %}
           {%- assign title = page.name | remove_first: '.md' %}
