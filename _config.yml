@@ -4,9 +4,8 @@ license_url: https://creativecommons.org/licenses/by-sa/4.0/
 
 defaults:
   - scope:
-      path: posts
+      path: ''
     values:
-      categories: [posts, unko]
       layout: page
       permalink: /:basename
 
