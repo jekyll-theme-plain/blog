@@ -11,13 +11,15 @@ layout: default
       {%- assign pages_by_date = site.pages | sort: 'date', 'last' | reverse -%}
 
       {%- for page in pages_by_date -%}
+      <li>
+        <b>{{- page | inspect -}}</b>
+      </li>
         {%- assign dir = page.path | split: '/' | first -%}
         {%- if dir == 'posts' %}
       <li>
           {%- assign url = page.url | remove_first: '/' %}
           {%- assign title = page.name | remove_first: '.md' %}
         <a href="{{- url -}}"{%- if page.date %} data-date="{{- page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -}}"{%- endif -%}>{{- title -}}</a>
-        <b>{{- page | inspect -}}</b>
       </li>
         {%- endif -%}
       {%- endfor %}
