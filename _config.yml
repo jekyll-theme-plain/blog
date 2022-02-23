@@ -6,7 +6,7 @@ defaults:
   - scope:
       path: 'posts'
     values:
-      layout: pageunko
+      layout: post-page
       permalink: /:basename
 
 optional_front_matter:
