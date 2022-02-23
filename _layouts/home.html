@@ -29,7 +29,7 @@ layout: default
           {%- endcomment -%}
           {%- assign splits = page.name | split: '.' -%}
           {%- assign end = splits | size | minus: 1 -%}
-          {%- assign title = splits | slice: 0, end %}
+          {%- assign title = splits | slice: 0, end | join: '.' %}
         <a href="{{- url -}}"
            {%- if page.date %} data-date="{{- data_date -}}"{%- endif -%}
         >
