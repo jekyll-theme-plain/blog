@@ -1,3 +1,3 @@
 # yuukikonnobot.github.io
 
-A plain text blogging system built on top of Jekyll + GitHub Pages
+A plain text blog system built on top of GitHub Pages
