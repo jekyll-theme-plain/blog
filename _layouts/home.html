@@ -13,6 +13,7 @@ layout: default
 
       {%- for page in pages_by_date -%}
         {%- if page.layout == 'post-page' %}
+      <li><b>{{- page | inspect -}}</b></li>
       <li>
           {%- assign url = page.url | remove_first: '/' %}
           {%- assign title = page.name | remove_first: '.md' %}
