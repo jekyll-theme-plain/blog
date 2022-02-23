@@ -24,11 +24,6 @@ layout: default
 
           {%- comment -%}
             Remove the extension from the filename and use it as the title.
-            This is simply the same as
-              {%- assign title = page.name | remove_first: '.md' -%}
-            but it works correctly even if there is ".md" in the middle of the filename. It is also
-            written in a more generic way so that it will work even when other extensions are
-            supported.
           {%- endcomment -%}
           {%- assign splits = page.name | split: '.' -%}
           {%- assign end = splits | size | minus: 1 -%}
