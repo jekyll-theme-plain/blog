@@ -1,8 +1,8 @@
 {%- case page.layout -%}
   {%- when 'home' -%}
     {%- assign is_home = true -%}
-  {%- when 'page' -%}
-    {%- assign is_page = true -%}
+  {%- when 'post-page' -%}
+    {%- assign is_post_page = true -%}
 {%- endcase -%}
 
 {%- assign canonical_url = page.url | absolute_url -%}
@@ -16,12 +16,12 @@
       {%- if is_home -%}
         {{- site.title -}}
       {%- else -%}
-        {{- canonical_url -}}
+        {{- canonical_url | url_decode -}}
       {%- endif -%}
     </title>
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="license" href="{{ site.license_url }}">
-    {%- if is_page %}
+    {%- if is_post_page %}
     <style>
       pre {
         word-wrap: break-word;
