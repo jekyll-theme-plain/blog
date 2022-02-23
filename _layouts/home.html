@@ -20,7 +20,7 @@ layout: default
           {%- assign data_date = page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
 
           {%- comment -%}
-            Remove the extension from the filename and use it as the title.
+            Use the filename with the extension removed as the title.
             It is almost the same as
               {%- assign title = page.name | remove_first: '.md' -%}
             but it works correctly even if there is '.md' in the middle of the filename. It is also
