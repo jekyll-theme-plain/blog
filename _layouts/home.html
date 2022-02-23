@@ -15,11 +15,26 @@ layout: default
         {%- if page.layout == 'post-page' %}
       <li><b>{{- page | inspect -}}</b></li>
       <li>
-          {%- assign url = page.url | remove_first: '/' %}
-          {%- assign splits = page.name | split: '.' %}
-          {%- assign end = splits | size | minus: 1 %}
+          {%- assign url = page.url | remove_first: '/' -%}
+          
+          {%- assign data_date = page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
+
+          {%- comment -%}
+            Remove the extension from the filename and use it as the title.
+            It is almost the same as
+              {%- assign title = page.name | remove_first: '.md' -%}
+            but it works correctly even if there is '.md' in the middle of the filename. It is also
+            written in a more generic way so that it will work even when other extensions are
+            supported.
+          {%- endcomment -%}
+          {%- assign splits = page.name | split: '.' -%}
+          {%- assign end = splits | size | minus: 1 -%}
           {%- assign title = splits | slice: 0, end %}
-        <a href="{{- url -}}"{%- if page.date %} data-date="{{- page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -}}"{%- endif -%}>{{- title -}}</a>
+        <a href="{{- url -}}"
+           {%- if page.date %} data-date="{{- data_date -}}"{%- endif -%}
+        >
+          {{- title -}}
+        </a>
       </li>
         {%- endif -%}
       {%- endfor %}
