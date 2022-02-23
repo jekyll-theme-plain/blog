@@ -12,7 +12,6 @@ layout: default
       {%- assign pages_by_date = site.pages | sort: 'date', 'last' | reverse -%}
 
       {%- for page in pages_by_date -%}
-      <li><b>{{- page | inspect -}}</b></li>
         {%- if page.layout == 'post-page' %}
       <li>
           {%- assign url = page.url | remove_first: '/' -%}
