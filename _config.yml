@@ -6,6 +6,7 @@ defaults:
   - scope:
       path: posts
     values:
+      category: posts
       layout: page
       permalink: /:basename
 
