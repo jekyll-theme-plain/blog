@@ -12,7 +12,8 @@ layout: default
       {%- assign pages_by_date = site.pages | sort: 'date', 'last' | reverse -%}
 
       {%- for page in pages_by_date -%}
-        {%- if page.layout == 'post-page' %}
+        {%- if page.layout == 'post-page' -%}
+          {%- comment -%} WHITESPACE AFTER THIS TAG WILL BE PRINTED. {%- endcomment %}
       <li>
           {%- assign url = page.url | remove_first: '/' -%}
 
@@ -26,7 +27,9 @@ layout: default
           {%- endcomment -%}
           {%- assign splits = page.name | split: '.' -%}
           {%- assign end = splits | size | minus: 1 -%}
-          {%- assign title = splits | slice: 0, end | join: '.' %}
+          {%- assign title = splits | slice: 0, end | join: '.' -%}
+
+          {%- comment -%} WHITESPACE AFTER THIS TAG WILL BE PRINTED. {%- endcomment %}
         <a href="{{- url -}}"
            {%- if page.date %} data-date="{{- date -}}"{%- endif -%}
         >
@@ -34,5 +37,7 @@ layout: default
         </a>
       </li>
         {%- endif -%}
-      {%- endfor %}
+      {%- endfor -%}
+
+      {%- comment -%} WHITESPACE AFTER THIS TAG WILL BE PRINTED. {%- endcomment %}
     </ul>
