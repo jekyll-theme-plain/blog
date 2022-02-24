@@ -11,7 +11,7 @@ layout: default
       {%- endcomment -%}
       {%- assign pages_by_date = site.pages | sort: 'date', 'last' | reverse -%}
 
-      {%- for page in pages_by_date -%}
+      {%- for page in pages_by_date %}
       <li><b>{{- page | layout -}}</b></li>
         {%- if page.layout == 'post-page' %}
       <li>
