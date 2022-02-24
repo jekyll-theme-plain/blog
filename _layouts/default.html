@@ -17,8 +17,8 @@
         {{- site.title -}}
       {%- else -%}
         {%- comment -%}
-          The character "+" is not escaped in `page.url`, but `url_decode` decodes "+" to a space,
-          so do the following.
+          The character "+" is not escaped in `canonical_url`, but `url_decode` decodes "+" to a
+          space, so do the following.
         {%- endcomment -%}
         {{- canonical_url | replace: '+', '%2B' | url_decode -}}
       {%- endif -%}
