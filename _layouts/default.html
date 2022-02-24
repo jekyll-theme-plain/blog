@@ -1,11 +1,9 @@
-{%- liquid
-case page.layout
-  when 'home'
-    assign is_home = true
-  when 'post-page'
-    assign is_post_page = true
-endcase
--%}
+{%- case page.layout -%}
+  {%- when 'home' -%}
+    {%- assign is_home = true -%}
+  {%- when 'post-page' -%}
+    {%- assign is_post_page = true -%}
+{%- endcase -%}
 
 {%- assign canonical_url = page.url | absolute_url -%}
 
@@ -15,17 +13,15 @@ endcase
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-      {%- liquid
-      if is_home
-        echo site.title
-      else
-        comment
+      {%- if is_home -%}
+        {{- site.title -}}
+      {%- else -%}
+        {%- comment -%}
           The character "+" is not escaped in `page.url`, but `url_decode` decodes "+" to a space,
           so do the following.
-        endcomment
-        echo canonical_url | replace: '+', '%2B' | url_decode
-      endif
-      -%}
+        {%- endcomment -%}
+        {{- canonical_url | replace: '+', '%2B' | url_decode -}}
+      {%- endif -%}
     </title>
     <link rel="canonical" href="{{- canonical_url -}}">
 
