@@ -11,8 +11,7 @@ layout: default
       {%- endcomment -%}
       {%- assign pages_by_date = site.pages | sort: 'date', 'last' | reverse -%}
 
-      {%- for page in pages_by_date %}
-      <li><b>{{- page | layout -}}</b></li>
+      {%- for page in pages_by_date -%}
         {%- if page.layout == 'post-page' %}
       <li>
           {%- assign url = page.url | remove_first: '/' -%}
