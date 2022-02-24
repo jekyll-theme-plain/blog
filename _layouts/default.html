@@ -5,10 +5,12 @@
     {%- assign is_post_page = true -%}
 {%- endcase -%}
 
+{%- assign lang = page.lang | default: site.lang -%}
+
 {%- assign canonical_url = page.url | absolute_url -%}
 
 <!DOCTYPE html>
-<html>
+<html{%- if lang -%} lang="{{- lang -}}"{%- endif -%}>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
