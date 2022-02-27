@@ -1,5 +1,7 @@
-theme: null
+title: Your blog title
 license_url: https://creativecommons.org/licenses/by-sa/4.0/
+
+theme: null
 
 defaults:
   - scope:
