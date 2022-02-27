@@ -6,7 +6,7 @@
 license_url: https://creativecommons.org/licenses/by-sa/4.0/
 
 ###
-### DO NOT CHANGE ANYTHING AFTER THIS LINE.
+### DO NOT CHANGE ANYTHING BELOW THIS LINE UNLESS YOU MEAN TO.
 ###
 defaults:
   - scope:
