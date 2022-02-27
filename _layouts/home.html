@@ -17,9 +17,6 @@ layout: default
       <li>
           {%- assign url = page.url | remove_first: '/' -%}
 
-          {%- comment -%}
-            Convert the date to the ISO 8601 format.
-          {%- endcomment -%}
           {%- assign date = page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
 
           {%- comment -%}
