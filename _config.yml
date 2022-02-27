@@ -2,14 +2,14 @@
 # lang: en
 license_url: https://creativecommons.org/licenses/by-sa/4.0/
 
-theme: null
-
 defaults:
   - scope:
       path: posts
     values:
       layout: post-page
       permalink: /:basename
+
+theme: null
 
 optional_front_matter:
   remove_originals: true
