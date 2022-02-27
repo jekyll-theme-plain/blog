@@ -30,11 +30,13 @@
     </title>
     <link rel="canonical" href="{{- canonical_url -}}">
 
-    {%- if site.license_url %}
+    {%- if site.license_url -%}
+      {%- comment -%} WHITESPACE AFTER THIS TAG WILL BE PRINTED. {%- endcomment %}
     <link rel="license" href="{{- site.license_url -}}">
     {%- endif -%}
 
-    {%- if is_post_page %}
+    {%- if is_post_page -%}
+      {%- comment -%} WHITESPACE AFTER THIS TAG WILL BE PRINTED. {%- endcomment %}
     <style>
       pre {
         word-wrap: break-word;
