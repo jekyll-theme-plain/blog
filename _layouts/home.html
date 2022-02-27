@@ -9,9 +9,9 @@ layout: default
         with no date (a nil date) last, and then reverse them.
         As a result, the pages with no date come first, followed by the newest pages.
       {%- endcomment -%}
-      {%- assign pages_by_date = site.pages | sort: 'date', 'last' | reverse -%}
+      {%- assign sorted_pages = site.pages | sort: 'date', 'last' | reverse -%}
 
-      {%- for page in pages_by_date -%}
+      {%- for page in sorted_pages -%}
         {%- if page.layout == 'post-page' -%}
           {%- comment -%} WHITESPACE {%- endcomment %}
       <li>
