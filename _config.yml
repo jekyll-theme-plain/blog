@@ -1,5 +1,6 @@
 ###
-### Uncomment the following lines and specify the title, language, and license URL of your blog (all are optional).
+### Uncomment the following lines and specify the title, language code, and
+### license URL of your blog (all are optional).
 ###
 # title: Your Blog Title
 # lang: en
