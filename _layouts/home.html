@@ -13,7 +13,7 @@ layout: default
 
       {%- for page in pages_by_date -%}
         {%- if page.layout == 'post-page' -%}
-          {%- comment -%} {%- endcomment %}
+          {%- comment -%} WHITESPACE {%- endcomment %}
       <li>
           {%- assign url = page.url | remove_first: '/' -%}
 
@@ -29,7 +29,7 @@ layout: default
           {%- assign end = splits | size | minus: 1 -%}
           {%- assign title = splits | slice: 0, end | join: '.' -%}
 
-          {%- comment -%} {%- endcomment %}
+          {%- comment -%} WHITESPACE {%- endcomment %}
         <a href="{{- url -}}"
            {%- if page.date %} data-date="{{- date -}}"{%- endif -%}
         >
@@ -39,5 +39,5 @@ layout: default
         {%- endif -%}
       {%- endfor -%}
 
-      {%- comment -%} {%- endcomment %}
+      {%- comment -%} WHITESPACE {%- endcomment %}
     </ul>
