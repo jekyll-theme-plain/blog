@@ -8,7 +8,7 @@ import os.path
 import re
 import sys
 
-# The directory where the post files are located
+# The directory where the post files are located.
 post_dir = "posts"
 
 # A format string for the front matter to be output
