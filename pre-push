@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Setup me as:
+# Set up me as:
 # ln -s ../../pre-push .git/hooks/pre-push
 #
 import os
@@ -8,7 +8,7 @@ import os.path
 import re
 import sys
 
-# A directory where the post files are stored
+# The directory where the post files are located
 post_dir = "posts"
 
 # A format string for the front matter to be output
