@@ -33,7 +33,7 @@ front_matter_regex = re.compile(
 )
 
 # The format string for the command to get the creation date of a post file.
-date_command = "TZ=UTC0 git log --date=iso-local --format='%%cd' %s | tail -n 1"
+date_command = "TZ=UTC0 git log --date=iso-local --format='%%cd' '%s' | tail -n 1"
 
 for filename in os.listdir(post_dir):
     filepath = os.path.join(post_dir, filename)
