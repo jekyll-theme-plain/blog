@@ -3,37 +3,27 @@ layout: default
 ---
 
     <ul>
-      {%- comment -%}
-        Sort the pages by date from newest to oldest.
-        First, sort the pages in ASCII order by date (same as from oldest to newest), with those
-        with no date (a nil date) last, and then reverse them.
-        As a result, the pages with no date come first, followed by the newest pages.
-      {%- endcomment -%}
-      {%- assign sorted_pages = site.pages | sort: 'date', 'last' | reverse -%}
-
-      {%- for page in sorted_pages -%}
-        {%- if page.layout == 'post' -%}
-          {%- comment -%} WHITESPACE {%- endcomment %}
+      {%- for post in site.posts -%}
+        {%- comment -%} WHITESPACE {%- endcomment %}
       <li>
-          {%- assign url = page.url | remove_first: '/' -%}
+        {%- assign url = page.url | remove_first: '/' -%}
 
-          {%- assign date = page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
+        {%- assign date = page.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
 
-          {%- comment -%}
-            Remove the extension from the filename and use it as the title.
-          {%- endcomment -%}
-          {%- assign splits = page.name | split: '.' -%}
-          {%- assign end = splits | size | minus: 1 -%}
-          {%- assign title = splits | slice: 0, end | join: '.' -%}
+        {%- comment -%}
+          Remove the extension from the filename and use it as the title.
+        {%- endcomment -%}
+        {%- assign splits = page.name | split: '.' -%}
+        {%- assign end = splits | size | minus: 1 -%}
+        {%- assign title = splits | slice: 0, end | join: '.' -%}
 
-          {%- comment -%} WHITESPACE {%- endcomment %}
+        {%- comment -%} WHITESPACE {%- endcomment %}
         <a href="{{- url -}}"
-           {%- if page.date %} data-date="{{- date -}}"{%- endif -%}
+          {%- if page.date %} data-date="{{- date -}}"{%- endif -%}
         >
           {{- title -}}
         </a>
       </li>
-        {%- endif -%}
       {%- endfor -%}
 
       {%- comment -%} WHITESPACE {%- endcomment %}
