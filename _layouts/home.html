@@ -12,7 +12,7 @@ layout: default
       {%- assign sorted_pages = site.pages | sort: 'date', 'last' | reverse -%}
 
       {%- for page in sorted_pages -%}
-        {%- if page.layout == 'post-page' -%}
+        {%- if page.layout == 'post' -%}
           {%- comment -%} WHITESPACE {%- endcomment %}
       <li>
           {%- assign url = page.url | remove_first: '/' -%}
