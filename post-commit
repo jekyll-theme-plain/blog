@@ -1,53 +1,40 @@
-#!/usr/bin/env python
-#
-# Set up me as:
-# ln -s ../../post-commit .git/hooks/post-commit
-#
-import os
-import os.path
-import re
-import sys
+#!/usr/bin/env ruby
+require 'open3'
+require 'yaml'
 
-# The directory where the post files are located.
-post_dir = "posts"
+# The directory where the post files are stored.
+post_dir = 'posts'
 
-# The format string for the front matter to be output.
-front_matter = """---
-date: %s
----
+# The format string for the command to get the first commit date of a post file. `%s` will be replaced by the path of the post file.
+date_command_format = %q{TZ=UTC0 git log --date=iso-local --format='%%cd' '%s' | tail -n 1}
 
-"""
+# Stolen from:
+# https://github.com/jekyll/jekyll/blob/b7056373afc65935a073bddadfe70606b622ffa6/lib/jekyll/document.rb#L13
+YAML_FRONT_MATTER_REGEXP = %r!\A(---\s*\n.*?\n?)^((---|\.\.\.)\s*$\n?)!m.freeze()
 
-# The regex that matches the existing front matter to be replaced.
-front_matter_regex = re.compile(
-    r"""
-^
-(?:
-    ---\s*?
-    (?:\n.*?)*?
-    \n---\s*?
-    (?:\n+|$)
-)?
-""",
-    re.VERBOSE,
-)
+Dir.foreach(post_dir) { |filename|
+  path = File.join(post_dir, filename)
 
-# The format string for the command to get the creation date of a post file.
-date_command = "TZ=UTC0 git log --date=iso-local --format='%%cd' '%s' | tail -n 1"
+  if File.file?(path)
+    front_matter = {}
+    content = File.read(path)
 
-for filename in os.listdir(post_dir):
-    filepath = os.path.join(post_dir, filename)
+    match = content.match(YAML_FRONT_MATTER_REGEXP)
+    if match
+      # `match[1]` corresponds to the YAML body.
+      front_matter = YAML.load(match[1]) || {}
 
-    if os.path.isfile(filepath):
-        with open(filepath, "r") as f:
-            content = f.read()
+      # `match.post_match` corresponds to the rest of the contents (post body).
+      content = match.post_match
+    end
 
-        with open(filepath, "w") as f:
-            date = os.popen(date_command % filepath).read().rstrip()
-
-            # Insert the front matter at the beginning of a post content (or replace existing front matter).
-            content = re.sub(front_matter_regex, front_matter % date, content)
-
-            f.write(content)
-
-os.system("git commit -am 'Insert date automatically by post-commit'")
+    # If the "date" key exists in the front matter, do nothing.
+    if not front_matter.has_key?('date')
+      Open3.popen2(date_command_format % path) { |stdin, stdout|
+        front_matter['date'] = stdout.read().chomp()
+        new_content = YAML.dump(front_matter).rstrip() + "\n---\n\n" + content
+        File.write(path, new_content)
+      }
+    end
+  end
+}
