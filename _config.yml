@@ -19,6 +19,6 @@ permalink: /:title
 # cf. https://github.com/github/pages-gem/blob/c6182087cff795e0f4ba3c9f1373756f7cd0726d/lib/github-pages/configuration.rb#L107
 theme: null
 
-# cf. https://github.com/benbalter/jekyll-optional-front-matter
+# cf. https://github.com/benbalter/jekyll-optional-front-matter#removing-originals
 optional_front_matter:
   remove_originals: true
