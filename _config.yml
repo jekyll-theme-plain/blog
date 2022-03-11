@@ -13,7 +13,8 @@ license_url: https://creativecommons.org/licenses/by-sa/4.0/
 
 permalink: /:title
 
-# Disable the "minima" theme. Jekyll will apply it by default and load unnecessary `/assets/css/style.css'.
+# Disable the "minima" theme. Jekyll will apply it by default and load
+# unnecessary `/assets/css/style.css'.
 # cf. https://github.com/jekyll/minima
 # cf. https://github.com/github/pages-gem/blob/c6182087cff795e0f4ba3c9f1373756f7cd0726d/lib/github-pages/configuration.rb#L107
 theme: null
