@@ -3,36 +3,38 @@
 # Set up me as:
 # ln -s ../../post-commit .git/hooks/post-commit
 #
-require 'open3'
+require 'date'
+require 'fileutils'
 require 'yaml'
 
 # The directory where the post files are stored.
 post_dir = '_posts'
 
-# The format string for the command to get the first commit date of a post file. `%s` will be replaced by the path of the post file.
+# The format string for the command to get the first commit date of a post
+# file. `%s` will be replaced by the filename.
 date_command_format = %q{TZ=UTC0 git log --date=iso-local --format='%%cd' '%s' | tail -n 1}
 
-# The regex that matches post file names that already have a date set.
-DATE_FILENAME_REGEXP = %r!\A\d{4}-\d{2}-\d{2}-!.freeze()
+# The regex that matches the name of the post file to be processed. Files that
+# already have a date set are excluded for efficiency.
+POST_FILENAME_REGEXP = %r{\A(?!\d{4}-\d{2}-\d{2}-).*\.md\z}.freeze()
 
-# Stolen from:
-# https://github.com/jekyll/jekyll/blob/b7056373afc65935a073bddadfe70606b622ffa6/lib/jekyll/document.rb#L13
-YAML_FRONT_MATTER_REGEXP = %r!\A(---\s*\n.*?\n?)^((---|\.\.\.)\s*$\n?)!m.freeze()
+# The regex that matches a YAML front matter.
+# cf. https://github.com/jekyll/jekyll/blob/b7056373afc65935a073bddadfe70606b622ffa6/lib/jekyll/document.rb#L13
+YAML_FRONT_MATTER_REGEXP = %r{\A(---\s*\n.*?\n?)^((---|\.\.\.)\s*$\n?)}m.freeze()
 
-Dir.foreach(post_dir) { |filename|
-  # Skip file names with a date.
-  if filename =~ DATE_FILENAME_REGEXP
+FileUtils.chdir(post_dir)
+
+Dir.foreach('.') { |filename|
+  if filename !~ POST_FILENAME_REGEXP
     next
   end
 
-  path = File.join(post_dir, filename)
-
-  if not File.file?(path)
+  if not File.file?(filename)
     next
   end
 
   front_matter = {}
-  content = File.read(path)
+  content = File.read(filename)
 
   match = content.match(YAML_FRONT_MATTER_REGEXP)
   if match
@@ -44,9 +46,14 @@ Dir.foreach(post_dir) { |filename|
   end
 
   if not front_matter.has_key?('date')
-    front_matter['date'] = `#{date_command_format % path}`.chomp()
+    front_matter['date'] = `#{date_command_format % filename}`.chomp()
   end
 
+  date = Date.parse(front_matter['date'])
+
   new_content = YAML.dump(front_matter).rstrip() + "\n---\n\n" + content
-  File.write(path, new_content)
+  File.write(filename, new_content)
+
+  new_filename = date.strftime() + '-' + filename
+  FileUtils.move(filename, new_filename)
 }
