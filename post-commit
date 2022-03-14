@@ -15,7 +15,9 @@ date_command_format = %q{TZ=UTC0 git log --follow --date=iso-local --format='%%c
 
 # The regex that matches the name of the post file to be processed. Files that
 # already have a date set are excluded for efficiency.
-POST_FILENAME_REGEXP = %r{\A(?!\d{4}-\d{2}-\d{2}-).*\.md\z}.freeze()
+# The year is intentionally limited to four digits to minimize confusion with
+# date-like post titles (thus having the Y10K problem).
+POST_FILENAME_REGEXP = %r{\A(?!\d{4}-\d{2}-\d{2}-).*\.md\z}m.freeze()
 
 # The regex that matches a YAML front matter.
 # cf. https://github.com/jekyll/jekyll/blob/b7056373afc65935a073bddadfe70606b622ffa6/lib/jekyll/document.rb#L13
