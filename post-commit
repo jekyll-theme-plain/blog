@@ -13,10 +13,9 @@ post_dir = '_posts'
 # file. `%s` will be replaced by the filename.
 date_command_format = %q{TZ=UTC0 git log --follow --date=iso-local --format='%%cd' '%s' | tail -n 1}
 
-# The regex that matches the name of the post file to be processed. Files that
-# already have a date set are excluded for efficiency.
+# The regex that matches a post file name. Exclude filenames with a date.
 # The year is intentionally limited to four digits to minimize confusion with
-# date-like post titles (thus having the Y10K problem).
+# original date-like filenames (thus having the Y10K problem).
 POST_FILENAME_REGEXP = %r{\A(?!\d{4}-\d{2}-\d{2}-).*\.md\z}m.freeze()
 
 # The regex that matches a YAML front matter.
