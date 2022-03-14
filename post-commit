@@ -11,7 +11,7 @@ post_dir = '_posts'
 
 # The format string for the command to get the first commit date of a post
 # file. `%s` will be replaced by the filename.
-date_command_format = %q{TZ=UTC0 git log --date=iso-local --format='%%cd' '%s' | tail -n 1}
+date_command_format = %q{TZ=UTC0 git log --follow --date=iso-local --format='%%cd' '%s' | tail -n 1}
 
 # The regex that matches the name of the post file to be processed. Files that
 # already have a date set are excluded for efficiency.
@@ -21,7 +21,7 @@ POST_FILENAME_REGEXP = %r{\A(?!\d{4}-\d{2}-\d{2}-).*\.md\z}.freeze()
 # cf. https://github.com/jekyll/jekyll/blob/b7056373afc65935a073bddadfe70606b622ffa6/lib/jekyll/document.rb#L13
 YAML_FRONT_MATTER_REGEXP = %r{\A(---\s*\n.*?\n?)^((---|\.\.\.)\s*$\n?)}m.freeze()
 
-FileUtils.chdir(post_dir)
+Dir.chdir(post_dir)
 
 Dir.foreach('.') { |filename|
   if filename !~ POST_FILENAME_REGEXP
