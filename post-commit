@@ -4,7 +4,6 @@
 # ln -s ../../post-commit .git/hooks/post-commit
 #
 require 'date'
-require 'fileutils'
 require 'yaml'
 
 # The directory where the post files are stored.
@@ -55,5 +54,5 @@ Dir.foreach('.') { |filename|
   File.write(filename, new_content)
 
   new_filename = date.strftime() + '-' + filename
-  FileUtils.move(filename, new_filename)
+  File.rename(filename, new_filename)
 }
