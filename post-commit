@@ -1,40 +1,52 @@
 #!/usr/bin/env ruby
+#
+# Set up me as:
+# ln -s ../../post-commit .git/hooks/post-commit
+#
 require 'open3'
 require 'yaml'
 
 # The directory where the post files are stored.
-post_dir = 'posts'
+post_dir = '_posts'
 
 # The format string for the command to get the first commit date of a post file. `%s` will be replaced by the path of the post file.
 date_command_format = %q{TZ=UTC0 git log --date=iso-local --format='%%cd' '%s' | tail -n 1}
+
+# The regex that matches post file names that already have a date set.
+DATE_FILENAME_REGEXP = %r!\A\d{4}-\d{2}-\d{2}-!.freeze()
 
 # Stolen from:
 # https://github.com/jekyll/jekyll/blob/b7056373afc65935a073bddadfe70606b622ffa6/lib/jekyll/document.rb#L13
 YAML_FRONT_MATTER_REGEXP = %r!\A(---\s*\n.*?\n?)^((---|\.\.\.)\s*$\n?)!m.freeze()
 
 Dir.foreach(post_dir) { |filename|
+  # Skip file names with a date.
+  if filename =~ DATE_FILENAME_REGEXP
+    next
+  end
+
   path = File.join(post_dir, filename)
 
-  if File.file?(path)
-    front_matter = {}
-    content = File.read(path)
-
-    match = content.match(YAML_FRONT_MATTER_REGEXP)
-    if match
-      # `match[1]` corresponds to the YAML body.
-      front_matter = YAML.load(match[1]) || {}
-
-      # `match.post_match` corresponds to the rest of the contents (post body).
-      content = match.post_match
-    end
-
-    # If the "date" key exists in the front matter, do nothing.
-    if not front_matter.has_key?('date')
-      Open3.popen2(date_command_format % path) { |stdin, stdout|
-        front_matter['date'] = stdout.read().chomp()
-        new_content = YAML.dump(front_matter).rstrip() + "\n---\n\n" + content
-        File.write(path, new_content)
-      }
-    end
+  if not File.file?(path)
+    next
   end
+
+  front_matter = {}
+  content = File.read(path)
+
+  match = content.match(YAML_FRONT_MATTER_REGEXP)
+  if match
+    # `match[1]` corresponds to the YAML body.
+    front_matter = YAML.load(match[1]) || {}
+
+    # `match.post_match` corresponds to the rest of the contents (post body).
+    content = match.post_match
+  end
+
+  if not front_matter.has_key?('date')
+    front_matter['date'] = `#{date_command_format % path}`.chomp()
+  end
+
+  new_content = YAML.dump(front_matter).rstrip() + "\n---\n\n" + content
+  File.write(path, new_content)
 }
