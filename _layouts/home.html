@@ -6,9 +6,6 @@ layout: default
       {%- for post in site.posts -%}
         {%- comment -%} WHITESPACE {%- endcomment %}
       <li>
-        {{- post | inspect -}}
-      </li>
-      <li>
         {%- assign url = post.url | remove_first: '/' -%}
 
         {%- assign date = post.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
