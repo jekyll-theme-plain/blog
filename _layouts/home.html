@@ -6,25 +6,18 @@ layout: default
       {%- for post in site.posts -%}
         {%- comment -%} WHITESPACE {%- endcomment %}
       <li>
-        <b>{{- post | inspect -}}</b>
+        {{- post | inspect -}}
       </li>
       <li>
         {%- assign url = post.url | remove_first: '/' -%}
 
         {%- assign date = post.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
 
-        {%- comment -%}
-          Remove the extension from the filename and use it as the title.
-        {%- endcomment -%}
-        {%- assign splits = post.name | split: '.' -%}
-        {%- assign end = splits | size | minus: 1 -%}
-        {%- assign title = splits | slice: 0, end | join: '.' -%}
-
         {%- comment -%} WHITESPACE {%- endcomment %}
         <a href="{{- url -}}"
           {%- if post.date %} data-date="{{- date -}}"{%- endif -%}
         >
-          {{- title -}}
+          {{- post.slug -}}
         </a>
       </li>
       {%- endfor -%}
