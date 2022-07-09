@@ -1,3 +1,3 @@
-# yuukikonnobot.github.io
+# plain-text-jekyll-theme
 
-A plain text blog system built on top of GitHub Pages
+Plain text Jekyll theme (unmaintained)
