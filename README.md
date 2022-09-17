@@ -1,3 +1,3 @@
 # plain-text-jekyll-theme
 
-Plain text Jekyll theme (unmaintained)
+[UNMAINTAINED] Plain text Jekyll theme
