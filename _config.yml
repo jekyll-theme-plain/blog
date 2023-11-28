@@ -5,7 +5,7 @@ title: Your awesome title
 lang: en-US
 
 # Site license url
-license_url: https://creativecommons.org/licenses/by-sa/4.0/
+# license_url: https://creativecommons.org/licenses/by-sa/4.0/
 
 # Permalink structure
 permalink: /:title
