@@ -1,3 +1,3 @@
-# plain-text-jekyll-theme
+# The Plain text theme
 
-[UNMAINTAINED] Plain text Jekyll theme
+Plain text is a Jekyll theme for GitHub Pages.
