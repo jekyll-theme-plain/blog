@@ -1,7 +1,13 @@
-# title: Your awesome title
+# Site title
+title: Your awesome title
+
+# Site language
 lang: en-US
+
+# Site license url
 license_url: https://creativecommons.org/licenses/by-sa/4.0/
 
+# Permalink structure
 permalink: /:title
 
 # Disable the `minima` theme. Jekyll will apply it by default and load unnecessary `/assets/css/style.css`.
