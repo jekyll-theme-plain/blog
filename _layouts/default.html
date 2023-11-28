@@ -7,17 +7,14 @@
   {%- if lang %} lang="{{- lang -}}"{%- endif -%}
 >
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="color-scheme" content="light dark">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
       {%- if page.layout == 'home' -%}
         {{- site.title -}}
       {%- else -%}
-        {%- comment -%}
-          The character "+" is not escaped in `canonical_url`, but `url_decode`
-          decodes "+" to a space, so do the following.
-        {%- endcomment -%}
+        {%- comment -%} The character "+" is not escaped in `canonical_url`, but `url_decode` decodes "+" to a space. {%- endcomment -%}
         {{- canonical_url | replace: '+', '%2B' | url_decode -}}
       {%- endif -%}
     </title>
