@@ -10,10 +10,6 @@ lang: en-US
 # Permalink structure
 permalink: /:title
 
-# Disable the `minima` theme. Jekyll will apply it by default and load unnecessary `/assets/css/style.css`.
-# https://github.com/github/pages-gem/blob/c6182087cff795e0f4ba3c9f1373756f7cd0726d/lib/github-pages/configuration.rb#L107
-# theme: null
-
 # https://github.com/benbalter/jekyll-optional-front-matter#removing-originals
-optional_front_matter:
-  remove_originals: true
+# optional_front_matter:
+#  remove_originals: true
