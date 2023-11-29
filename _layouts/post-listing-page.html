@@ -11,7 +11,7 @@ layout: base
 
         {%- comment -%} WHITESPACE {%- endcomment %}
         <pre>{{ post | inspect }}</pre>
-        <a href="{{- post.slug -}}">{{- post.slug -}}</a>
+        <a href="{{- post.url | replace_first: page.url, '' -}}">{{- post.slug -}}</a>
       </li>
       {%- endfor -%}
 
