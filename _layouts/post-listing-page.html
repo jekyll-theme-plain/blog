@@ -4,6 +4,7 @@ layout: base
 
     <ul>
       {%- for post in site.posts -%}
+
         {%- comment -%} WHITESPACE {%- endcomment %}
       <li>
         {%- assign url = post.slug -%}
@@ -11,7 +12,8 @@ layout: base
         {%- assign date = post.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
 
         {%- comment -%} WHITESPACE {%- endcomment %}
-        <a href="{{- url -}}" {%- if post.date %} data-date="{{- date -}}"{%- endif -%}>
+        <time datetime="{{- date -}}"></time>
+        <a href="{{- url -}}">
           {{- post.slug -}}
         </a>
       </li>
