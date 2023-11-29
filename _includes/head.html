@@ -1,15 +1,10 @@
 {%- assign canonical_url = page.url | absolute_url -%}
 
-    {%- comment -%} WHITESPACE {%- endcomment %}
     <meta charset="UTF-8">
 
-    {%- if site.color_scheme -%}
-
-      {%- comment -%} WHITESPACE {%- endcomment %}
+    {%- if site.color_scheme %}
     <meta name="color-scheme" content="{{- site.color_scheme -}}">
-    {%- endif -%}
-
-    {%- comment -%} WHITESPACE {%- endcomment %}
+    {%- endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
       {%- if page.layout == 'post-listing-page' -%}
@@ -21,8 +16,6 @@
     </title>
     <link rel="canonical" href="{{- canonical_url -}}">
 
-    {%- if site.license_url -%}
-
-      {%- comment -%} WHITESPACE {%- endcomment %}
+    {%- if site.license_url %}
     <link rel="license" href="{{- site.license_url -}}">
     {%- endif -%}
