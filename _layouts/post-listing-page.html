@@ -7,15 +7,9 @@ layout: base
 
         {%- comment -%} WHITESPACE {%- endcomment %}
       <li>
-        {%- assign url = post.slug -%}
-
-        {%- assign date = post.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
 
         {%- comment -%} WHITESPACE {%- endcomment %}
-        <time datetime="{{- date -}}"></time>
-        <a href="{{- url -}}">
-          {{- post.slug -}}
-        </a>
+        <a href="{{- post.slug -}}">{{- post.slug -}}</a>
       </li>
       {%- endfor -%}
 
