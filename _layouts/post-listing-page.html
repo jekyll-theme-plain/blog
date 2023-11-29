@@ -2,7 +2,7 @@
 layout: base
 ---
 
-    <pre>{{ post | inspect }}</pre>
+    <pre>{{- post | inspect -}}</pre>
     <ul>
       {%- for post in site.posts -%}
 
