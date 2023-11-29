@@ -11,7 +11,7 @@
     <meta name="color-scheme" content="light dark">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-      {%- if page.layout == 'home' -%}
+      {%- if page.layout == 'post-listing-page' -%}
         {{- site.title -}}
       {%- else -%}
         {%- comment -%} The character "+" is not escaped in `canonical_url`, but `url_decode` decodes "+" to a space. {%- endcomment -%}
