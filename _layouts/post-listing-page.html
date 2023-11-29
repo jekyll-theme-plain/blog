@@ -11,9 +11,7 @@ layout: base
         {%- assign date = post.date | date_to_xmlschema | replace_first: '+00:00', 'Z' -%}
 
         {%- comment -%} WHITESPACE {%- endcomment %}
-        <a href="{{- url -}}"
-          {%- if post.date %} data-date="{{- date -}}"{%- endif -%}
-        >
+        <a href="{{- url -}}" {%- if post.date %} data-date="{{- date -}}"{%- endif -%}>
           {{- post.slug -}}
         </a>
       </li>
