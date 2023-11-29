@@ -7,40 +7,7 @@
   {%- if lang %} lang="{{- lang -}}"{%- endif -%}
 >
   <head>
-    <meta charset="UTF-8">
-    <meta name="color-scheme" content="light dark">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-      {%- if page.layout == 'post-listing-page' -%}
-        {{- site.title -}}
-      {%- else -%}
-        {%- comment -%} The character "+" is not escaped in `canonical_url`, but `url_decode` decodes "+" to a space. {%- endcomment -%}
-        {{- canonical_url | replace: '+', '%2B' | url_decode -}}
-      {%- endif -%}
-    </title>
-    <link rel="canonical" href="{{- canonical_url -}}">
-
-    {%- if site.license_url -%}
-      {%- comment -%} WHITESPACE {%- endcomment %}
-    <link rel="license" href="{{- site.license_url -}}">
-    {%- endif -%}
-
-    {%- if page.layout == 'post' -%}
-      {%- comment -%} WHITESPACE {%- endcomment %}
-    <style>
-      pre {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        white-space: -moz-pre-wrap;
-        white-space: -pre-wrap;
-        white-space: -o-pre-wrap;
-        white-space: pre-wrap;
-        white-space: break-spaces;
-      }
-    </style>
-    {%- endif -%}
-
-    {%- comment -%} WHITESPACE {%- endcomment %}
+    {%- include head.html -%}
   </head>
   <body>
 {{ content }}  </body>
