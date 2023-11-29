@@ -2,18 +2,10 @@
 layout: base
 ---
 
-    <pre>{{ page | inspect }}</pre>
     <ul>
-      {%- for post in site.posts -%}
-
-        {%- comment -%} WHITESPACE {%- endcomment %}
+      {%- for post in site.posts %}
       <li>
-
-        {%- comment -%} WHITESPACE {%- endcomment %}
-        <pre>{{ post | inspect }}</pre>
         <a href="{{- post.url | replace_first: page.url, '' -}}">{{- post.slug -}}</a>
       </li>
-      {%- endfor -%}
-
-      {%- comment -%} WHITESPACE {%- endcomment %}
+      {%- endfor %}
     </ul>
