@@ -8,7 +8,7 @@
 
 {%- assign charset = page.charset | default: site.charset -%}
 {%- comment -%}
-  If `charset` is falsy (i.e., `nil` or `false`), assigns the default encoding. If it is an empty string, leaves it as is. (In that case, no meta charset tag is output.)
+  # If `charset` is falsy (i.e., `nil` or `false`), assigns the default encoding. If it is an empty string, leaves it as is. (In that case, no `<meta charset="...">` tag is output.)
 {%- endcomment -%}
 {%- unless charset -%}
   {%- assign charset = 'utf-8' -%}
@@ -24,9 +24,19 @@
 {%- assign canonical_url = page.url | absolute_url -%}
 
 {%- comment -%}
-  Converts all "+" to "%2B" so that they become "+" after decoding. ("+" is not encoded in `canonical_url`, while `url_decode` decodes it to a space.)
+  # Converts all "+" to "%2B" so that they become "+" after decoding. ("+" is not encoded in `canonical_url`, while `url_decode` decodes it to a space.)
 {%- endcomment -%}
 {%- assign decoded_canonical_url = canonical_url | replace: '+', '%2B' | url_decode -%}
+
+{%- if is_post_listing_page -%}
+  {%- assign title = site.title -%}
+{%- elsif is_plain_text_post -%}
+  {%- assign title = decoded_canonical_url -%}
+{%- else -%}
+  {%- assign title = page.title -%}
+{%- endif -%}
+
+{%- assign license_url = page.license_url | default: site.license_url -%}
 
     {%- if charset != "" -%}
     <meta charset="{{- charset -}}">
@@ -40,19 +50,11 @@
     <meta name="viewport" content="{{- viewport -}}">
     {% endif -%}
 
-    <title>
-      {%- if is_post_listing_page' -%}
-        {{- site.title -}}
-      {%- elsif is_plain_text_post -%}
-        {{- decoded_canonical_url -}}
-      {%- else -%}
-        {{- page.title -}}
-      {%- endif -%}
-    </title>
+    <title>{{- title -}}</title>
     <link rel="canonical" href="{{- canonical_url -}}">
 
-    {%- if site.license_url %}
-    <link rel="license" href="{{- site.license_url -}}">
+    {%- if license_url and license_url != "" %}
+    <link rel="license" href="{{- license_url -}}">
     {%- endif %}
 {% if is_plain_text_post %}    <style>
 {% include plain-text-post.css %}    </style>
