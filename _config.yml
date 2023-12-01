@@ -5,6 +5,10 @@ title: Your post listing page title
 
 permalink: /:title
 
+collections:
+  posts:
+    layout: post
+
 defaults:
   -
     scope:
