@@ -21,3 +21,5 @@ defaults:
 
 optional_front_matter:
   remove_originals: true
+
+# remote_theme: jekyll-theme-blank/jekyll-theme-blank # Uncomment this line
