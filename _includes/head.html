@@ -1,7 +1,7 @@
 {%- assign canonical_url = page.url | absolute_url -%}
 
 {%- comment -%} Converts all "+" to "%2B" so that they become "+" after decoding. ("+" is not escaped in `canonical_url`, while `url_decode` decodes it to a space.) {%- endcomment -%}
-{%- assign decoded_canonical_url = canonical_url | replace: '+', '%2B' | url_decode -%}
+{%- assign decoded_canonical_url = canonical_url | replace: '+', '%2B' | url_decode %}
 
     <meta charset="UTF-8">
 
