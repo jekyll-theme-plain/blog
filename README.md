@@ -11,3 +11,13 @@ remote_theme: jekyll-theme-blank/jekyll-theme-blank
 ```
 
 See the theme's [_config.yml](_config.yml) for options.
+
+## Layouts
+
+### base
+
+### page-listing-page
+
+### post-listing-page
+
+### plain-text-post
