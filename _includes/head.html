@@ -8,7 +8,7 @@
 {%- assign viewport = page.viewport | default: site.viewport -%}
 {%- unless viewport -%}
   {%- assign viewport = 'width=device-width, initial-scale=1' -%}
-{%- elseunless -%}
+{%- endunless -%}
 
 {%- if page.layout == 'post-listing-page' -%}
   {%- assign is_post_listing_page = true -%}
