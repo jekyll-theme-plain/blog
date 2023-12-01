@@ -17,31 +17,31 @@ A simple C++ program to print the primes less than or equal to 100 would be as f
     
     // Returns whether `n` is prime.
     bool is_prime(int n) {
-        if (n <= 1) {
-            return false;
-        }
-
-        for (int i = 2; i < n; i++) {
-            if (n % i == 0) {
-                return false;
-            }
-        }
+      if (n <= 1) {
+        return false;
+      }
     
-        return true;
+      for (int i = 2; i < n; i++) {
+        if (n % i == 0) {
+          return false;
+        }
+      }
+    
+      return true;
     }
     
     int main() {
-        // Prints the prime numbers less than or equal to 100.
-        for (int n = 0; n <= 100; n++) {
-            if (is_prime(n)) {
-                std::cout << n << std::endl;
-            }
+      // Prints the prime numbers less than or equal to 100.
+      for (int n = 0; n <= 100; n++) {
+        if (is_prime(n)) {
+          std::cout << n << std::endl;
         }
+      }
     }
 
     ⋊> g++ -Ofast -std=c++2a -Wall -Wextra -Werror -pedantic-errors -o main main.cc; and time ./main | wc -l
           25
-
+    
     ________________________________________________________
     Executed in    5.37 millis    fish           external
        usr time    2.70 millis  159.00 micros    2.54 millis
