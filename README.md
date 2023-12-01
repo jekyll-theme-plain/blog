@@ -10,4 +10,4 @@ In your _config.yml:
 remote_theme: jekyll-theme-plain-text/jekyll-theme-plain-text
 ```
 
-See the theme's [_config.yml](_config.yml) for more options.
+See the theme's [_config.yml](_config.yml) for options.
