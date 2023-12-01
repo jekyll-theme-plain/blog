@@ -1,15 +1,9 @@
-# Site title
-title: Your awesome title
-
-# Site language
 lang: en-US
-
-# Site license url
+# color_scheme: light dark
+title: Your post listing page title
 # license_url: https://creativecommons.org/licenses/by-sa/4.0/
 
-# Permalink structure
 permalink: /:title
 
-# https://github.com/benbalter/jekyll-optional-front-matter#removing-originals
-# optional_front_matter:
-#  remove_originals: true
+optional_front_matter:
+  remove_originals: true
