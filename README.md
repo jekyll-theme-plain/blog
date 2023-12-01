@@ -4,10 +4,10 @@ This is a plain text-like Jekyll theme for GitHub Pages.
 
 ## Usage
 
-In your [_config.yml](_config.yml):
+In your _config.yml:
 
 ```yaml
 remote_theme: jekyll-theme-plain-text/jekyll-theme-plain-text
 ```
 
-See [_config.yml](_config.yml) for more options.
+See the theme's [_config.yml](_config.yml) for more options.
