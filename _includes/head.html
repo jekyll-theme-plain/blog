@@ -1,4 +1,8 @@
+{%- assign is_post_listing_page = page.layout == 'post-listing-page' -%}
 {%- assign canonical_url = page.url | absolute_url -%}
+
+{%- comment -%} Converts all "+" to "%2B" so that they become "+" after decoding. (The literal character "+" is not escaped in `canonical_url` while `url_decode` decodes it to a space.) {%- endcomment -%}
+{%- assign decoded_canonical_url = canonical_url | replace: '+', '%2B' | url_decode -%}
 
     <meta charset="UTF-8">
 
@@ -7,11 +11,11 @@
     {%- endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-      {%- if page.layout == 'post-listing-page' -%}
+      {%- if is_post_listing_page -%}
         {{- site.title -}}
       {%- else -%}
-        {%- comment -%} The character "+" is not escaped in `canonical_url`, but `url_decode` decodes "+" to a space. {%- endcomment -%}
-        {{- canonical_url | replace: '+', '%2B' | url_decode -}}
+        {%- comment -%} On the individual post page, sets the URL as the title. {%- endcomment -%}
+        {{- decoded_canonical_url -}}
       {%- endif -%}
     </title>
     <link rel="canonical" href="{{- canonical_url -}}">
