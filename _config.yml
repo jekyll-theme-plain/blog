@@ -1,6 +1,6 @@
 lang: en
 # charset: 
-# color_scheme: light dark
+# color_scheme: false # disables the auto dark mode
 # viewport: 
 
 title: The Blank Jekyll theme # Your post listing page title
