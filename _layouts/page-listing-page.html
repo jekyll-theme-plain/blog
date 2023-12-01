@@ -1,0 +1,11 @@
+---
+layout: base
+---
+
+    <ul>
+      {%- for individual_page in site.pages %}
+      <li>
+        <a href="{{- individual_page.url | replace_first: page.url, '' -}}">{{- individual_page.slug -}}</a>
+      </li>
+      {%- endfor %}
+    </ul>
