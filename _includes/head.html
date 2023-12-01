@@ -1,4 +1,6 @@
 {%- assign is_post_listing_page = page.layout == 'post-listing-page' -%}
+{%- assign is_post = page.layout == 'post' -%}
+
 {%- assign canonical_url = page.url | absolute_url -%}
 
 {%- comment -%} Converts all "+" to "%2B" so that they become "+" after decoding. ("+" is not escaped in `canonical_url`, while `url_decode` decodes it to a space.) {%- endcomment -%}
@@ -22,7 +24,9 @@
 
     {%- if site.license_url %}
     <link rel="license" href="{{- site.license_url -}}">
-    {%- endif %}
+    {%- endif -%}
+
+    {%- if is_post %}
     <style>
       pre {
         word-wrap: break-word;
@@ -34,3 +38,4 @@
         white-space: break-spaces;
       }
     </style>
+    {%- endif -%}
