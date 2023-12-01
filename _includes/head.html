@@ -7,7 +7,7 @@
 {%- endif -%}
 
 {%- comment -%}
-  # If no `charset` is specified (or `nil` is specified), sets the default encoding. If `false` or an empty string is specified, leaves it as is. (In that case, no `<meta charset="...">` tag is produced.)
+  # If no `charset` is specified (or `nil` is specified), sets the default encoding. If `false` or an empty string is specified, leaves it as is. (If it is false, no `<meta charset="...">` tag is output. If empty, outputs the meta tag with an empty value.)
 {%- endcomment -%}
 {%- assign charset = page.charset -%}
 {%- if charset == nil -%}
@@ -43,15 +43,15 @@
   {%- assign license_url = site.license_url -%}
 {%- endif -%}
 
-{%- if charset != "" %}
+{%- if charset %}
     <meta charset="{{- charset -}}">
 {%- endif -%}
 
-{%- if color_scheme and color_scheme != "" %}
+{%- if color_scheme %}
     <meta name="color-scheme" content="{{- color_scheme -}}">
 {%- endif -%}
 
-{%- if viewport != "" %}
+{%- if viewport %}
     <meta name="viewport" content="{{- viewport -}}">
 {%- endif %}
     <title>
@@ -67,11 +67,11 @@
       {%- endif -%}
     </title>
 
-{%- if canonical_url and canonical_url != "" %}
+{%- if canonical_url %}
     <link rel="canonical" href="{{- canonical_url -}}">
 {%- endif -%}
 
-{%- if license_url and license_url != "" %}
+{%- if license_url %}
     <link rel="license" href="{{- license_url -}}">
 {%- endif -%}
 
