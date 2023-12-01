@@ -5,5 +5,13 @@ title: Your post listing page title
 
 permalink: /:title
 
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
 optional_front_matter:
   remove_originals: true
