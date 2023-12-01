@@ -21,8 +21,7 @@
 
     {%- if site.license_url %}
     <link rel="license" href="{{- site.license_url -}}">
-    {%- endif -%}
-
-    {%- if page.layout == 'post' -%}
+    {%- endif %}
+{% if page.layout == 'post' -%}
       {% include post-style.html -%}
     {%- endif -%}
