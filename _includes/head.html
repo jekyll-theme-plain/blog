@@ -1,11 +1,14 @@
-{%- if page.charset == nil and site.charset == nil -%}
+{%- assign charset = page.charset | default: site.charset -%}
+{%- unless charset -%}
   {%- assign charset = 'utf-8' -%}
-{%- else -%}
-  {%- assign charset = page.charset | default: site.charset -%}
-{%- endif -%}
+{%- endunless -%}
 
 {%- assign color_scheme = page.color_scheme | default: site.color_scheme -%}
+
 {%- assign viewport = page.viewport | default: site.viewport -%}
+{%- unless viewport -%}
+  {%- assign viewport = 'width=device-width, initial-scale=1' -%}
+{%- elseunless -%}
 
 {%- if page.layout == 'post-listing-page' -%}
   {%- assign is_post_listing_page = true -%}
@@ -24,11 +27,11 @@
     <meta charset="{{- charset -}}">
     {% endif -%}
 
-    {%- if color_scheme -%}
+    {%- if color_scheme and color_scheme != "" -%}
     <meta name="color-scheme" content="{{- color_scheme -}}">
     {% endif -%}
 
-    {%- if viewport -%}
+    {%- if viewport != "" -%}
     <meta name="viewport" content="{{- viewport -}}">
     {% endif -%}
 
