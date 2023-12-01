@@ -20,6 +20,9 @@
 {%- assign color_scheme = page.color_scheme -%}
 {%- if color_scheme == nil -%}
   {%- assign color_scheme = site.color_scheme -%}
+  {%- if color_scheme == nil -%}
+    {%- assign color_scheme = 'light dark' -%}
+  {%- endif -%}
 {%- endif -%}
 
 {%- assign viewport = page.viewport -%}
