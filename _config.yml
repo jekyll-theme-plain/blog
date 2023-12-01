@@ -1,7 +1,7 @@
 lang: en-US
 # color_scheme: light dark
 title: Your post listing page title
-# url: https://www.example.com
+# url: https://jekyll-theme-plain-text.github.io
 # license_url: https://creativecommons.org/licenses/by-sa/4.0/
 
 permalink: /:title
