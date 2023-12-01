@@ -1,6 +1,6 @@
 {%- assign charset = page.charset | default: site.charset -%}
 {%- comment -%}
-  If `charset` is falsy (i.e., `nil` or `false`), assigns the default encoding. If it is an empty string, leaves it as is.
+  If `charset` is falsy (i.e., `nil` or `false`), assigns the default encoding. If it is an empty string, leaves it as is. (In that case, no meta charset tag is output.)
 {%- endcomment -%}
 {%- unless charset -%}
   {%- assign charset = 'utf-8' -%}
