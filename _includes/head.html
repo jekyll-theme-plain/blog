@@ -1,3 +1,7 @@
+{%- assign charset = page.charset | default: site.charset -%}
+{%- assign color_scheme = page.color_scheme | default: site.color_scheme -%}
+{%- assign viewport = page.viewport | default: site.viewport -%}
+
 {%- if page.layout == 'post-listing-page' -%}
   {%- assign is_post_listing_page = true -%}
 {%- endif -%}
@@ -11,12 +15,18 @@
 {%- comment -%} Converts all "+" to "%2B" so that they become "+" after decoding. ("+" is not escaped in `canonical_url`, while `url_decode` decodes it to a space.) {%- endcomment -%}
 {%- assign decoded_canonical_url = canonical_url | replace: '+', '%2B' | url_decode -%}
 
-    <meta charset="utf-8">
+    {%- if charset -%}
+    <meta charset="{{- charset -}}">
+    {% endif -%}
 
-    {%- if site.color_scheme %}
-    <meta name="color-scheme" content="{{- site.color_scheme -}}">
-    {%- endif %}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%- if color_scheme -%}
+    <meta name="color-scheme" content="{{- color_scheme -}}">
+    {% endif -%}
+
+    {%- if viewport -%}
+    <meta name="viewport" content="{{- viewport -}}">
+    {% endif -%}
+
     <title>
       {%- if is_post_listing_page' -%}
         {{- site.title -}}
