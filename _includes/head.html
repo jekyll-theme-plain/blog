@@ -6,29 +6,42 @@
   {%- assign is_plain_text_post = true -%}
 {%- endif -%}
 
-{%- assign charset = page.charset | default: site.charset -%}
 {%- comment -%}
-  # If `charset` is falsy (i.e., `nil` or `false`), assigns the default encoding. If it is an empty string, leaves it as is. (In that case, no `<meta charset="...">` tag is output.)
+  # If no `charset` is specified (or `nil` is specified), sets the default encoding. If `false` or an empty string is specified, leaves it as is. (In that case, no `<meta charset="...">` tag is produced.)
 {%- endcomment -%}
-{%- unless charset -%}
-  {%- assign charset = 'utf-8' -%}
-{%- endunless -%}
+{%- assign charset = page.charset -%}
+{%- if charset == nil -%}
+  {%- assign charset = site.charset -%}
+  {%- if charset == nil -%}
+    {%- assign charset = 'utf-8' -%}
+  {%- endif -%}
+{%- endif -%}
 
-{%- assign color_scheme = page.color_scheme | default: site.color_scheme -%}
+{%- assign color_scheme = page.color_scheme -%}
+{%- if color_scheme == nil -%}
+  {%- assign color_scheme = site.color_scheme -%}
+{%- endif -%}
 
-{%- assign viewport = page.viewport | default: site.viewport -%}
-{%- unless viewport -%}
-  {%- assign viewport = 'width=device-width, initial-scale=1' -%}
-{%- endunless -%}
+{%- assign viewport = page.viewport -%}
+{%- if viewport == nil -%}
+  {%- assign viewport = site.viewport -%}
+  {%- if viewport == nil -%}
+    {%- assign viewport = 'width=device-width, initial-scale=1' -%}
+  {%- endif -%}
+{%- endif -%}
 
-{%- assign canonical_url = page.url | absolute_url -%}
+{%- assign canonical_url = page.canonical_url -%}
+{%- if canonical_url == nil -%}
+  {%- assign canonical_url = site.canonical_url -%}
+  {%- if canonical_url == nil -%}
+    {%- assign canonical_url = page.url | absolute_url -%}
+  {%- endif -%}
+{%- endif -%}
 
-{%- comment -%}
-  # Converts all "+" to "%2B" so that they become "+" after decoding. ("+" is not encoded in `canonical_url`, while `url_decode` decodes it to a space.)
-{%- endcomment -%}
-{%- assign decoded_canonical_url = canonical_url | replace: '+', '%2B' | url_decode -%}
-
-{%- assign license_url = page.license_url | default: site.license_url -%}
+{%- assign license_url = page.license_url -%}
+{%- if license_url == nil -%}
+  {%- assign license_url = site.license_url -%}
+{%- endif -%}
 
 {%- if charset != "" %}
     <meta charset="{{- charset -}}">
@@ -45,12 +58,18 @@
       {%- if is_post_listing_page -%}
         {{- site.title -}}
       {%- elsif is_plain_text_post -%}
-        {{- decoded_canonical_url -}}
+        {%- comment -%}
+          # On the plain text post page, sets the decoded canonical URL as the title. Converts all "+" to "%2B" so that they become "+" after decoding. ("+" is not encoded in `canonical_url`, while `url_decode` decodes it to a space.)
+        {%- endcomment -%}
+        {{- canonical_url | replace: '+', '%2B' | url_decode -}}
       {%- else -%}
         {{- page.title -}}
       {%- endif -%}
     </title>
+
+{%- if canonical_url and canonical_url != "" %}
     <link rel="canonical" href="{{- canonical_url -}}">
+{%- endif -%}
 
 {%- if license_url and license_url != "" %}
     <link rel="license" href="{{- license_url -}}">
