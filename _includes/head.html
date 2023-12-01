@@ -38,24 +38,24 @@
 
 {%- assign license_url = page.license_url | default: site.license_url -%}
 
-    {%- if charset != "" -%}
+    {%- if charset != "" %}
     <meta charset="{{- charset -}}">
-    {% endif -%}
+    {%- endif -%}
 
-    {%- if color_scheme and color_scheme != "" -%}
+    {%- if color_scheme and color_scheme != "" %}
     <meta name="color-scheme" content="{{- color_scheme -}}">
-    {% endif -%}
+    {%- endif -%}
 
-    {%- if viewport != "" -%}
+    {%- if viewport != "" %}
     <meta name="viewport" content="{{- viewport -}}">
-    {% endif -%}
-
+    {%- endif %}
     <title>{{- title -}}</title>
     <link rel="canonical" href="{{- canonical_url -}}">
 
     {%- if license_url and license_url != "" %}
     <link rel="license" href="{{- license_url -}}">
-    {%- endif %}
-{% if is_plain_text_post %}    <style>
+    {%- endif -%}
+
+    {%- if is_plain_text_post -%}    <style>
 {% include plain-text-post.css %}    </style>
 {% endif -%}
