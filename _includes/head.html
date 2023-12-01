@@ -1,4 +1,9 @@
-{%- assign charset = page.charset | default: site.charset -%}
+{%- if page.charset == nil and site.charset == nil -%}
+  {%- assign charset = 'utf-8' -%}
+{%- else -%}
+  {%- assign charset = page.charset | default: site.charset -%}
+{%- endif -%}
+
 {%- assign color_scheme = page.color_scheme | default: site.color_scheme -%}
 {%- assign viewport = page.viewport | default: site.viewport -%}
 
