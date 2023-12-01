@@ -10,7 +10,9 @@
     {%- endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-      {%- if page.layout == 'post-listing-page' -%}
+      {%- if page.title -%}
+        {{- page.title -}}
+      {%- elsif page.layout == 'post-listing-page' -%}
         {{- site.title -}}
       {%- else -%}
         {%- comment -%} On the individual post page, sets the URL as the title. {%- endcomment -%}
