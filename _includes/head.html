@@ -1,6 +1,3 @@
-{%- assign is_post_listing_page = page.layout == 'post-listing-page' -%}
-{%- assign is_post = page.layout == 'post' -%}
-
 {%- assign canonical_url = page.url | absolute_url -%}
 
 {%- comment -%} Converts all "+" to "%2B" so that they become "+" after decoding. ("+" is not escaped in `canonical_url`, while `url_decode` decodes it to a space.) {%- endcomment -%}
@@ -13,7 +10,7 @@
     {%- endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-      {%- if is_post_listing_page -%}
+      {%- if page.layout == 'post-listing-page' -%}
         {{- site.title -}}
       {%- else -%}
         {%- comment -%} On the individual post page, sets the URL as the title. {%- endcomment -%}
@@ -26,7 +23,7 @@
     <link rel="license" href="{{- site.license_url -}}">
     {%- endif -%}
 
-    {%- if is_post %}
+    {%- if page.layout == 'post' %}
     <style>
       pre {
         word-wrap: break-word;
@@ -38,6 +35,4 @@
         white-space: break-spaces;
       }
     </style>
-    {%- endif %}
-    <!-- {{- is_post -}} -->
-    <!-- {{- page.layout -}} -->
+    {%- endif -%}
