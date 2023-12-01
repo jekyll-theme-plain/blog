@@ -21,7 +21,6 @@
       {%- if is_post_listing_page' -%}
         {{- site.title -}}
       {%- elsif is_plain_text_post -%}
-        {%- comment -%} On the individual post page, sets the URL as the title. {%- endcomment -%}
         {{- decoded_canonical_url -}}
       {%- else -%}
         {{- page.title -}}
