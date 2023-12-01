@@ -6,6 +6,7 @@ lang: en
 title: The Blank Jekyll theme # Your post listing page title
 
 # url: https://jekyll-theme-blank.github.io
+# canonical_url: false # disables the output of the `<link rel="canonical" href="...">` tag
 # license_url: https://creativecommons.org/licenses/by-sa/4.0/
 
 permalink: /:title
