@@ -1,5 +1,5 @@
-{%- if page.layout == 'post-listing-page' -%}
-  {%- assign is_post_listing_page = true -%}
+{%- if page.layout == 'page-listing-page' or page.layout == 'post-listing-page' -%}
+  {%- assign is_listing_page = true -%}
 {%- endif -%}
 
 {%- if page.layout == 'plain-text-post' -%}
@@ -58,7 +58,7 @@
     <meta name="viewport" content="{{- viewport -}}">
 {%- endif %}
     <title>
-      {%- if is_post_listing_page -%}
+      {%- if is_listing_page -%}
         {{- site.title -}}
       {%- elsif is_plain_text_post -%}
         {%- comment -%}
