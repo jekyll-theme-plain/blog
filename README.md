@@ -9,3 +9,5 @@ In your [_config.yml](_config.yml):
 ```yaml
 remote_theme: jekyll-theme-plain-text/jekyll-theme-plain-text
 ```
+
+See [_config.yml](_config.yml) for more options.
