@@ -1,7 +1,7 @@
 lang: en
-charset: utf-8
+# charset: 
 # color_scheme: light dark
-viewport: width=device-width, initial-scale=1
+# viewport: 
 
 title: The Blank Jekyll theme # Your post listing page title
 
