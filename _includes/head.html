@@ -7,7 +7,7 @@
 {%- endif -%}
 
 {%- comment -%}
-  # If no `charset` is specified (or `nil` is specified), sets the default encoding. If `false` or an empty string is specified, leaves it as is. (If it is false, no `<meta charset="...">` tag is output. If empty, outputs the meta tag with an empty value.)
+  # If no `charset` is specified (or `nil` is specified), sets the default encoding. If `false` or an empty string is specified, leaves it as is.
 {%- endcomment -%}
 {%- assign charset = page.charset -%}
 {%- if charset == nil -%}
@@ -46,6 +46,9 @@
   {%- assign license_url = site.license_url -%}
 {%- endif -%}
 
+    {%- comment -%}
+      # If `charset` is false, no meta tag is output. If it is an empty string (which is truthy), outputs the meta tag with an empty attribute value.
+    {%- endcomment -%}
     {%- if charset %}
     <meta charset="{{- charset -}}">
     {%- endif -%}
