@@ -16,7 +16,7 @@ See the theme's [_config.yml](_config.yml) for options.
 
 ### base
 
-### page-listing-page
+### static-html-file-listing-page
 
 ### post-listing-page
 
