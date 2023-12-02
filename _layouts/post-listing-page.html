@@ -5,7 +5,7 @@ layout: base
     <ul>
       {%- for post in site.posts %}
       <li>
-        <a href="{{- post.url | replace_first: page.url, '' -}}">{{- post.slug -}}</a>
+        <a href="{{- post.url | remove_first: page.url -}}">{{- post.slug -}}</a>
       </li>
       {%- endfor %}
     </ul>
