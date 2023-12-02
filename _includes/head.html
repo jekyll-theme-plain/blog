@@ -1,4 +1,4 @@
-{%- if page.layout == 'static-html-file-listing-page' or page.layout == 'post-listing-page' -%}
+{%- if page.layout contains 'listing-page' -%}
   {%- assign is_listing_page = true -%}
 {%- endif -%}
 
