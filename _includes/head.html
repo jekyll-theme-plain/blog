@@ -7,40 +7,27 @@
 {%- endif -%}
 
 {%- assign charset = page.charset -%}
-{%- if charset == nil -%}
-  {%- assign charset = site.charset -%}
-  {%- if charset == nil -%}
-    {%- assign charset = 'utf-8' -%}
-  {%- endif -%}
-{%- endif -%}
+{%- if charset == nil -%}{%- assign charset = site.charset -%}
+{%- if charset == nil -%}{%- assign charset = 'utf-8' -%}
+{%- endif -%}{%- endif -%}
 
 {%- assign color_scheme = page.color_scheme -%}
-{%- if color_scheme == nil -%}
-  {%- assign color_scheme = site.color_scheme -%}
-  {%- if color_scheme == nil -%}
-    {%- assign color_scheme = 'light dark' -%}
-  {%- endif -%}
-{%- endif -%}
+{%- if color_scheme == nil -%}{%- assign color_scheme = site.color_scheme -%}
+{%- if color_scheme == nil -%}{%- assign color_scheme = 'light dark' -%}
+{%- endif -%}{%- endif -%}
 
 {%- assign viewport = page.viewport -%}
-{%- if viewport == nil -%}
-  {%- assign viewport = site.viewport -%}
-  {%- if viewport == nil -%}
-    {%- assign viewport = 'width=device-width, initial-scale=1' -%}
-  {%- endif -%}
-{%- endif -%}
+{%- if viewport == nil -%}{%- assign viewport = site.viewport -%}
+{%- if viewport == nil -%}{%- assign viewport = 'width=device-width, initial-scale=1' -%}
+{%- endif -%}{%- endif -%}
 
 {%- assign canonical_url = page.canonical_url -%}
-{%- if canonical_url == nil -%}
-  {%- assign canonical_url = site.canonical_url -%}
-  {%- if canonical_url == nil -%}
-    {%- assign canonical_url = page.url | absolute_url -%}
-  {%- endif -%}
-{%- endif -%}
+{%- if canonical_url == nil -%}{%- assign canonical_url = site.canonical_url -%}
+{%- if canonical_url == nil -%}{%- assign canonical_url = page.url | absolute_url -%}
+{%- endif -%}{%- endif -%}
 
 {%- assign license_url = page.license_url -%}
-{%- if license_url == nil -%}
-  {%- assign license_url = site.license_url -%}
+{%- if license_url == nil -%}{%- assign license_url = site.license_url -%}
 {%- endif -%}
 
     {%- if charset %}
