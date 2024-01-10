@@ -17,7 +17,7 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: plain-text-post
+      layout: post
 
 optional_front_matter:
   remove_originals: true
