@@ -7,7 +7,7 @@ title: Your index page title
 
 # url: https://jekyll-theme-blank.github.io
 # canonical_url: false # disables canonical URLs
-license_url: https://creativecommons.org/licenses/by-sa/4.0/
+# license_url: https://creativecommons.org/licenses/by-sa/4.0/
 
 permalink: /:title
 
