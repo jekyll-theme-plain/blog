@@ -9,6 +9,11 @@ title: Your index page title
 
 permalink: /:title
 
+collections:
+  pages:
+    output: true
+    permalink: /:title/
+
 defaults:
   -
     scope:
