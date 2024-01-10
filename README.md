@@ -4,7 +4,7 @@ This is a blank Jekyll theme for GitHub Pages.
 
 ## Usage
 
-In your _config.yml:
+In your `_config.yml`:
 
 ```yaml
 remote_theme: jekyll-theme-blank/jekyll-theme-blank
