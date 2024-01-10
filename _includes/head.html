@@ -1,14 +1,11 @@
-{%- if page.layout contains 'listing-page' -%}
-  {%- assign is_listing_page = true -%}
+{%- if page.layout contains 'index' -%}
+  {%- assign is_index = true -%}
 {%- endif -%}
 
-{%- if page.layout == 'plain-text-post' -%}
-  {%- assign is_plain_text_post = true -%}
+{%- if page.layout == 'post' -%}
+  {%- assign is_post = true -%}
 {%- endif -%}
 
-{%- comment -%}
-  # If no `charset` is specified (or `nil` is specified), sets the default encoding. If `false` or an empty string is specified, leaves it as is.
-{%- endcomment -%}
 {%- assign charset = page.charset -%}
 {%- if charset == nil -%}
   {%- assign charset = site.charset -%}
@@ -46,9 +43,6 @@
   {%- assign license_url = site.license_url -%}
 {%- endif -%}
 
-    {%- comment -%}
-      # If `charset` is false, no meta tag is output. If it is an empty string (which is truthy), outputs the meta tag with an empty attribute value.
-    {%- endcomment -%}
     {%- if charset %}
     <meta charset="{{- charset -}}">
     {%- endif -%}
@@ -61,16 +55,16 @@
     <meta name="viewport" content="{{- viewport -}}">
     {%- endif %}
     <title>
-      {%- if is_listing_page -%}
+      {%- if page.title -%}
+        {{- page.title -}}
+      {%- elsif is_index -%}
         {{- site.title -}}
-      {%- elsif is_plain_text_post -%}
+      {%- elsif is_post -%}
         {%- comment -%}
-          # On the plain text post page, sets the decoded canonical URL as the title. Converts all "+" to "%2B" so that they become "+" after decoding. ("+" is not encoded in `canonical_url`, while `url_decode` decodes it to a space.)
+          # On the post page, sets the decoded canonical URL as the title. Converts all "+" to "%2B" so that they become "+" after decoding. ("+" is not encoded in `canonical_url`, while `url_decode` decodes it to a space.)
         {%- endcomment -%}
         {{- canonical_url | replace: '+', '%2B' | url_decode -}}
       {%- else -%}
-        {{- page.title -}}
-      {%- endif -%}
     </title>
 
     {%- if canonical_url %}
@@ -81,6 +75,6 @@
     <link rel="license" href="{{- license_url -}}">
     {%- endif -%}
 
-    {%- if is_plain_text_post %}
-    <style>{% include plain-text-post.css %}    </style>
+    {%- if is_post %}
+    <style>{% include post.css %}    </style>
     {%- endif %}
