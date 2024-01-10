@@ -1,6 +1,6 @@
 # [Blank](https://jekyll-theme-blank.github.io/)
 
-This is a blank Jekyll theme for GitHub Pages.
+Blank is a minimal, plain text-like Jekyll theme for GitHub Pages.
 
 ## Usage
 
@@ -16,8 +16,8 @@ See the theme's [_config.yml](_config.yml) for options.
 
 ### base
 
-### static-html-file-listing-page
+### static-file-index
 
-### post-listing-page
+### post-index
 
 ### plain-text-post
