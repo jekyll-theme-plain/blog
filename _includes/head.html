@@ -64,7 +64,7 @@
           # On the post page, sets the decoded canonical URL as the title. Converts all "+" to "%2B" so that they become "+" after decoding. ("+" is not encoded in `canonical_url`, while `url_decode` decodes it to a space.)
         {%- endcomment -%}
         {{- canonical_url | replace: '+', '%2B' | url_decode -}}
-      {%- else -%}
+      {%- endif -%}
     </title>
 
     {%- if canonical_url %}
