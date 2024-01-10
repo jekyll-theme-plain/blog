@@ -12,6 +12,10 @@ remote_theme: jekyll-theme-blank/jekyll-theme-blank
 
 See the theme's [_config.yml](_config.yml) for options.
 
+## Examples
+
+* [jekyll-theme-blank/jekyll-theme-blank.github.io](https://github.com/jekyll-theme-blank/jekyll-theme-blank.github.io)
+
 ## Layouts
 
 ### base
