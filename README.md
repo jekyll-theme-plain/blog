@@ -16,8 +16,8 @@ See the theme's [_config.yml](_config.yml) for options.
 
 ### base
 
-### static-file-index
+### post
 
 ### post-index
 
-### plain-text-post
+### static-file-index
