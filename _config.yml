@@ -1,7 +1,7 @@
-# lang: ja
-# charset: 
+# lang: en-US
+# charset: utf-8
 # color_scheme: false # disables auto dark mode
-# viewport: 
+# viewport: width=device-width, initial-scale=1
 
 title: The Blank Jekyll theme # Your page/post listing page title
 
