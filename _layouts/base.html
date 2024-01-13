@@ -6,6 +6,6 @@
 <!DOCTYPE html>
 <html {%- if lang %} lang="{{- lang -}}"{%- endif -%}>
   <head>{% include head.html %}  </head>
-  <body>
+  <body><pre>{{ site.static_files | inspect }}</pre>
 {{ content }}  </body>
 </html>
