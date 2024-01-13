@@ -30,6 +30,11 @@
 {%- if license_url == nil -%}{%- assign license_url = site.license_url -%}
 {%- endif -%}
 
+{%- assign stylesheet = page.stylesheet -%}
+{%- if stylesheet == nil -%}{%- assign stylesheet = site.stylesheet -%}
+{%- if stylesheet == nil and is_post -%}{%- assign stylesheet = 'post.css' -%}
+{%- endif -%}
+
     {%- if charset %}
     <meta charset="{{- charset -}}">
     {%- endif -%}
@@ -65,8 +70,6 @@
     <link rel="license" href="{{- license_url -}}">
     {%- endif -%}
 
-    {%- if page.stylesheet %}
+    {%- if stylesheet %}
     <style>{% include {{ page.stylesheet }} %}    </style>
-    {%- elsif is_post %}
-    <style>{% include post.css %}    </style>
     {%- endif %}
