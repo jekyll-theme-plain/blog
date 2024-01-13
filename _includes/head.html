@@ -34,9 +34,9 @@
 {%- if license_url == nil -%}{%- assign license_url = site.license_url -%}
 {%- endif -%}
 
-{%- assign stylesheet = page.stylesheet -%}
-{%- if stylesheet == nil -%}{%- assign stylesheet = site.stylesheet -%}
-{%- if stylesheet == nil and is_post -%}{%- assign stylesheet = 'post.css' -%}
+{%- assign stylesheets = page.stylesheets -%}
+{%- if stylesheets == nil -%}{%- assign stylesheets = site.stylesheets -%}
+{%- if stylesheets == nil and is_post -%}{%- assign stylesheets = 'post.css' | split: ',' -%}
 {%- endif -%}
 {%- endif -%}
 
@@ -75,6 +75,7 @@
     <link rel="license" href="{{- license_url -}}">
     {%- endif -%}
 
-    {%- if stylesheet %}
-    <style>{% include {{ stylesheet }} %}    </style>
+    {%- if stylesheets %}
+    <style>
+      {%- for stylesheet in stylesheets %}{% include {{ stylesheet }} %}{% endfor %}    </style>
     {%- endif %}
