@@ -9,22 +9,26 @@
 {%- assign charset = page.charset -%}
 {%- if charset == nil -%}{%- assign charset = site.charset -%}
 {%- if charset == nil -%}{%- assign charset = 'utf-8' -%}
-{%- endif -%}{%- endif -%}
+{%- endif -%}
+{%- endif -%}
 
 {%- assign color_scheme = page.color_scheme -%}
 {%- if color_scheme == nil -%}{%- assign color_scheme = site.color_scheme -%}
 {%- if color_scheme == nil -%}{%- assign color_scheme = 'light dark' -%}
-{%- endif -%}{%- endif -%}
+{%- endif -%}
+{%- endif -%}
 
 {%- assign viewport = page.viewport -%}
 {%- if viewport == nil -%}{%- assign viewport = site.viewport -%}
 {%- if viewport == nil -%}{%- assign viewport = 'width=device-width, initial-scale=1' -%}
-{%- endif -%}{%- endif -%}
+{%- endif -%}
+{%- endif -%}
 
 {%- assign canonical_url = page.canonical_url -%}
 {%- if canonical_url == nil -%}{%- assign canonical_url = site.canonical_url -%}
 {%- if canonical_url == nil -%}{%- assign canonical_url = page.url | absolute_url -%}
-{%- endif -%}{%- endif -%}
+{%- endif -%}
+{%- endif -%}
 
 {%- assign license_url = page.license_url -%}
 {%- if license_url == nil -%}{%- assign license_url = site.license_url -%}
@@ -33,6 +37,7 @@
 {%- assign stylesheet = page.stylesheet -%}
 {%- if stylesheet == nil -%}{%- assign stylesheet = site.stylesheet -%}
 {%- if stylesheet == nil and is_post -%}{%- assign stylesheet = 'post.css' -%}
+{%- endif -%}
 {%- endif -%}
 
     {%- if charset %}
@@ -71,5 +76,5 @@
     {%- endif -%}
 
     {%- if stylesheet %}
-    <style>{% include {{ page.stylesheet }} %}    </style>
+    <style>{% include {{ stylesheet }} %}    </style>
     {%- endif %}
