@@ -65,6 +65,8 @@
     <link rel="license" href="{{- license_url -}}">
     {%- endif -%}
 
-    {%- if is_post %}
+    {%- if page.stylesheet %}
+    <style>{% include {{ page.stylesheet }} %}    </style>
+    {%- elif is_post %}
     <style>{% include post.css %}    </style>
     {%- endif %}
