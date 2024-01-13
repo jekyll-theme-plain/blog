@@ -45,7 +45,13 @@
       {%- if is_index -%}
         {{- site.title -}}
       {%- elsif is_post -%}
-        {{- canonical_url | remove_first: 'https://' | remove_first: 'http://' | replace: '+', '%2B' | url_decode -}}
+        {{- canonical_url
+            | remove_first: 'https://www.'
+            | remove_first: 'http://www.'
+            | remove_first: 'https://'
+            | remove_first: 'http://'
+            | replace: '+', '%2B'
+            | url_decode -}}
       {%- else -%}
         {{- page.title -}}
       {%- endif -%}
