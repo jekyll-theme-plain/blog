@@ -6,6 +6,11 @@
 <!DOCTYPE html>
 <html {%- if lang %} lang="{{- lang -}}"{%- endif -%}>
   <head>{% include head.html %}  </head>
-  <body><pre>{{ site.static_files | inspect }}</pre>
+  <body>
+    <ul>
+      {%- for file in site.static_files -%}
+      <li>{{ file.path }}</li>
+      {%- endfor -%}
+    </ul>
 {{ content }}  </body>
 </html>
