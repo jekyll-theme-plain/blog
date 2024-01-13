@@ -67,6 +67,6 @@
 
     {%- if page.stylesheet %}
     <style>{% include {{ page.stylesheet }} %}    </style>
-    {%- elif is_post %}
+    {%- elsif is_post %}
     <style>{% include post.css %}    </style>
     {%- endif %}
