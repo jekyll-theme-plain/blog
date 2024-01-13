@@ -7,10 +7,5 @@
 <html {%- if lang %} lang="{{- lang -}}"{%- endif -%}>
   <head>{% include head.html %}  </head>
   <body>
-    <ul>
-      {%- for file in site.static_files -%}
-      <li>{{ file.path }}</li>
-      {%- endfor -%}
-    </ul>
 {{ content }}  </body>
 </html>
