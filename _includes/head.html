@@ -35,9 +35,12 @@
 {%- endif -%}
 
 {%- assign stylesheets = page.stylesheets -%}
-{%- if stylesheets == nil -%}{%- assign stylesheets = site.stylesheets -%}
-{%- if stylesheets == nil and is_post -%}{%- assign stylesheets = 'post.css' | split: ',' -%}
-{%- endif -%}
+{%- if stylesheets == nil -%}
+  {%- if is_post -%}
+    {%- assign stylesheets = 'post.css' | split: ',' -%}
+  {%- else -%}
+    {%- assign stylesheets = site.stylesheets -%}
+  {%- endif -%}
 {%- endif -%}
 
     {%- if charset %}
