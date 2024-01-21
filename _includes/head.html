@@ -66,7 +66,7 @@
             | replace: '+', '%2B'
             | url_decode -}}
       {%- else -%}
-        {{- page.title -}}
+        {{- page.title | default: site.title -}}
       {%- endif -%}
     </title>
 
