@@ -1,0 +1,5 @@
+{%- for post in site.posts %}
+<li>
+  <a href="{{- post.url | remove_first: page.url -}}">{{- post.slug -}}</a>
+</li>
+{%- endfor %}
