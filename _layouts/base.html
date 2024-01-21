@@ -3,9 +3,7 @@
 {%- endcomment -%}
 {%- assign lang = page.lang -%}
 {%- if lang == nil -%}{%- assign lang = site.lang -%}
-{%- if lang == nil -%}{%- assign lang = 'en' -%}
-{%- endif -%}
-{%- endif -%}
+{%- if lang == nil -%}{%- assign lang = 'en' -%}{%- endif -%}{%- endif -%}
 
 <!DOCTYPE html>
 <html {%- if lang %} lang="{{- lang -}}"{%- endif -%}>
