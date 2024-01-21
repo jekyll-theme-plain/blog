@@ -9,6 +9,13 @@ title: Your awesome title
 # canonical: false # disables canonical URLs
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
+exclude:
+  - 404.html
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+
 permalink: /blog/:title
 
 collections:
