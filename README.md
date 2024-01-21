@@ -4,13 +4,7 @@ Plain is a plain text-like Jekyll theme for GitHub Pages.
 
 ## Usage
 
-Add the following to your site's `_config.yml`:
-
-```yaml
-remote_theme: jekyll-theme-plain/jekyll-theme-plain
-```
-
-See the theme's [_config.yml](_config.yml) for options.
+Copy the [_config.yml](_config.yml) to your repo and edit it.
 
 ## Examples
 
