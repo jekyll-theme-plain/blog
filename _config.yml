@@ -7,7 +7,7 @@ remote_theme: jekyll-theme-plain/jekyll-theme-plain
 title: Your awesome title
 # url: https://USERNAME.github.io
 # canonical: false # disables canonical URLs
-# license: https://creativecommons.org/licenses/by-sa/4.0/
+# license: https://creativecommons.org/publicdomain/zero/1.0/
 
 permalink: /:title
 
