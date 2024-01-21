@@ -1,6 +1,6 @@
-# [Blank](https://jekyll-theme-blank.github.io/)
+# [Plain](https://jekyll-theme-plain.github.io/)
 
-Blank is a minimal, plain text-like Jekyll theme for GitHub Pages.
+Plain is a plain text-like Jekyll theme for GitHub Pages.
 
 ## Usage
 
