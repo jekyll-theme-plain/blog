@@ -9,7 +9,7 @@ title: Your awesome title
 # canonical: false # disables canonical URLs
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
-permalink: /:title
+permalink: /blog/:title
 
 collections:
   pages:
@@ -17,6 +17,12 @@ collections:
     permalink: /:title/
 
 defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      layout: base
   -
     scope:
       path: ""

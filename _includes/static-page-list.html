@@ -1,0 +1,14 @@
+    <ul>
+      {%-
+          assign files = site.static_files
+          | where_exp: "file", "file.extname == '.html'"
+          | where_exp: "file", "file.path != '/404.html'"
+      -%}
+
+      {%- for file in files -%}
+        {%- assign path = file.path | remove_first: page.url | remove_first: "/index.html" %}
+      <li>
+        <a href="{{- path | append: "/" -}}">{{- path -}}</a>
+      </li>
+      {%- endfor %}
+    </ul>
