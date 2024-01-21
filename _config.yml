@@ -1,10 +1,10 @@
 # lang: en
 # charset: utf-8
-# color_scheme: false # disables auto dark mode
+# color_scheme: false # disables dark mode sync
 # viewport: width=device-width, initial-scale=1
-title: Your index page title
+title: Your awesome title
 # url: https://USERNAME.github.io
-# canonical_url: false # disables canonical URLs
+# canonical_urls: false # disables canonical URLs
 # license_url: https://creativecommons.org/licenses/by-sa/4.0/
 
 permalink: /:title
