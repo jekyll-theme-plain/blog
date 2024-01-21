@@ -1,3 +1,5 @@
+remote_theme: jekyll-theme-plain/jekyll-theme-plain
+
 # lang: en
 # charset: utf-8
 # color_scheme: false # disables dark mode sync
