@@ -1,13 +1,10 @@
 remote_theme: jekyll-theme-plain/jekyll-theme-plain
 
 # lang: en
-
 # charset: utf-8
 # color_scheme: false # disables dark mode sync
 # viewport: width=device-width, initial-scale=1
-
 title: Your awesome title
-
 # url: https://USERNAME.github.io
 # canonical: false # disables canonical URLs
 # license: https://creativecommons.org/publicdomain/zero/1.0/
