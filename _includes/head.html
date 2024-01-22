@@ -1,11 +1,4 @@
 {%- comment -%}
-  # Whether the page is an index page.
-{%- endcomment -%}
-{%- if page.layout contains 'list' -%}
-  {%- assign is_list = true -%}
-{%- endif -%}
-
-{%- comment -%}
   # Whether the page is a post.
 {%- endcomment -%}
 {%- if page.layout == 'post' -%}
@@ -52,9 +45,7 @@
     <meta name="viewport" content="{{- viewport -}}">
     {%- endif %}
     <title>
-      {%- if is_list -%}
-        {{- site.title -}}
-      {%- elsif is_post -%}
+      {%- if is_post -%}
         {{-
             canonical
             | remove_first: 'https://www.'
