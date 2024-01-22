@@ -2,4 +2,12 @@
 layout: base
 ---
 
-{%- include static-page-list.html -%}
+    <ul>
+      {%- assign files = site.static_files | where: "extname", ".html" -%}
+      {%- for file in files -%}
+        {%- assign path = file.path | remove_first: page.url | remove_first: "/index.html" %}
+      <li>
+        <a href="{{- path | append: "/" -}}">{{- path -}}</a>
+      </li>
+      {%- endfor %}
+    </ul>

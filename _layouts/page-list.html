@@ -2,4 +2,10 @@
 layout: base
 ---
 
-{%- include page-list.html -%}
+    <ul>
+      {%- for page in site.pages %}
+      <li>
+        <a href="{{- page.url -}}">{{- page.slug -}}</a>
+      </li>
+      {%- endfor %}
+    </ul>
