@@ -1,41 +1,35 @@
 {%- comment -%}
-  # 
+  # Whether the page is an index page.
 {%- endcomment -%}
-{%- if page.layout contains 'index' -%}
-  {%- assign is_index = true -%}
+{%- if page.layout contains 'list' -%}
+  {%- assign is_list = true -%}
 {%- endif -%}
 
+{%- comment -%}
+  # Whether the page is a post.
+{%- endcomment -%}
 {%- if page.layout == 'post' -%}
   {%- assign is_post = true -%}
 {%- endif -%}
 
 {%- assign charset = page.charset -%}
 {%- if charset == nil -%}{%- assign charset = site.charset -%}
-{%- if charset == nil -%}{%- assign charset = 'utf-8' -%}
-{%- endif -%}
-{%- endif -%}
+{%- if charset == nil -%}{%- assign charset = 'utf-8' -%}{%- endif -%}{%- endif -%}
 
 {%- assign color_scheme = page.color_scheme -%}
 {%- if color_scheme == nil -%}{%- assign color_scheme = site.color_scheme -%}
-{%- if color_scheme == nil -%}{%- assign color_scheme = 'light dark' -%}
-{%- endif -%}
-{%- endif -%}
+{%- if color_scheme == nil -%}{%- assign color_scheme = 'light dark' -%}{%- endif -%}{%- endif -%}
 
 {%- assign viewport = page.viewport -%}
 {%- if viewport == nil -%}{%- assign viewport = site.viewport -%}
-{%- if viewport == nil -%}{%- assign viewport = 'width=device-width, initial-scale=1' -%}
-{%- endif -%}
-{%- endif -%}
+{%- if viewport == nil -%}{%- assign viewport = 'width=device-width, initial-scale=1' -%}{%- endif -%}{%- endif -%}
 
-{%- assign canonical_url = page.canonical_url -%}
-{%- if canonical_url == nil -%}{%- assign canonical_url = site.canonical_url -%}
-{%- if canonical_url == nil -%}{%- assign canonical_url = page.url | absolute_url -%}
-{%- endif -%}
-{%- endif -%}
+{%- assign canonical = page.canonical -%}
+{%- if canonical == nil -%}{%- assign canonical = site.canonical -%}
+{%- if canonical == nil -%}{%- assign canonical = page.url | absolute_url -%}{%- endif -%}{%- endif -%}
 
-{%- assign license_url = page.license_url -%}
-{%- if license_url == nil -%}{%- assign license_url = site.license_url -%}
-{%- endif -%}
+{%- assign license = page.license -%}
+{%- if license == nil -%}{%- assign license = site.license -%}{%- endif -%}
 
 {%- assign stylesheets = page.stylesheets -%}
 {%- if stylesheets == nil -%}
@@ -58,27 +52,29 @@
     <meta name="viewport" content="{{- viewport -}}">
     {%- endif %}
     <title>
-      {%- if is_index -%}
+      {%- if is_list -%}
         {{- site.title -}}
       {%- elsif is_post -%}
-        {{- canonical_url
+        {{-
+            canonical
             | remove_first: 'https://www.'
             | remove_first: 'http://www.'
             | remove_first: 'https://'
             | remove_first: 'http://'
             | replace: '+', '%2B'
-            | url_decode -}}
+            | url_decode
+        -}}
       {%- else -%}
         {{- page.title | default: site.title -}}
       {%- endif -%}
     </title>
 
-    {%- if canonical_url %}
-    <link rel="canonical" href="{{- canonical_url -}}">
+    {%- if canonical %}
+    <link rel="canonical" href="{{- canonical -}}">
     {%- endif -%}
 
-    {%- if license_url %}
-    <link rel="license" href="{{- license_url -}}">
+    {%- if license %}
+    <link rel="license" href="{{- license -}}">
     {%- endif -%}
 
     {%- if stylesheets %}
