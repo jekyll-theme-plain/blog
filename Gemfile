@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-gem "github-pages", "~> 228", group: :jekyll_plugins
-gem "webrick", "~> 1.8"
+source "https://rubygems.org"
+gemspec
