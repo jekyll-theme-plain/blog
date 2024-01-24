@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "A plain text-like Jekyll theme for GitHub Pages"
   spec.homepage      = "https://github.com/jekyll-theme-plain/jekyll-theme-plain"
-  spec.license       = "CC0"
+  spec.license       = "CC0-1.0"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README)!i) }
 
