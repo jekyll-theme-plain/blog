@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.homepage = "https://github.com/jekyll-theme-plain/jekyll-theme-plain"
   spec.license  = "CC0-1.0"
   spec.name     = "jekyll-theme-plain"
-  spec.summary  = "A plain text-like Jekyll theme"
+  spec.summary  = "A plain text-like Jekyll theme for GitHub Pages"
   spec.version  = "0.2.0"
 
   spec.add_runtime_dependency "github-pages", "~> 228"
