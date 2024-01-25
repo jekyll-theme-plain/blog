@@ -1,9 +1,5 @@
----
-layout: base
----
-
-    <ul>
-      {%- assign files = site.static_files | where: "extname", ".html" -%}
+    {%- assign files = site.static_files | where: "extname", ".html" -%}
+    {%- if files.size > 0 %}    <ul>
       {%- for file in files -%}
         {%- assign path = file.path | remove_first: page.url | remove_first: "/index.html" %}
       <li>
@@ -11,3 +7,4 @@ layout: base
       </li>
       {%- endfor %}
     </ul>
+    {%- endif %}

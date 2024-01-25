@@ -1,11 +1,8 @@
----
-layout: base
----
-
-    <ul>
+    {%- if site.pages.size > 0 %}    <ul>
       {%- for page in site.pages %}
       <li>
         <a href="{{- page.url -}}">{{- page.slug -}}</a>
       </li>
       {%- endfor %}
     </ul>
+    {%- endif %}

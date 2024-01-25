@@ -6,13 +6,12 @@ remote_theme: jekyll-theme-plain/jekyll-theme-plain
 # viewport: width=device-width, initial-scale=1
 title: Your awesome title
 # url: https://USERNAME.github.io
-# canonical: false # disables canonical URLs
-# license: https://creativecommons.org/publicdomain/zero/1.0/
+# canonical_url: false # disables canonical URLs
+# license_url: https://creativecommons.org/publicdomain/zero/1.0/
+# stylesheets:
+#   - base.css
 
 exclude:
-  - 404.html
-  - Gemfile
-  - Gemfile.lock
   - LICENSE
   - README.md
 
@@ -24,18 +23,12 @@ collections:
     permalink: /:title/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
-      type: pages
     values:
       layout: base
-  -
-    scope:
+  - scope:
       path: ""
       type: posts
     values:
       layout: post
-
-optional_front_matter:
-  remove_originals: true
