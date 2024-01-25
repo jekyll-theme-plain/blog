@@ -12,6 +12,7 @@ title: Your awesome title
 #   - base.css
 
 exclude:
+  - Gemfile*
   - LICENSE
   - README.md
 
