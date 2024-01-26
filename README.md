@@ -1,7 +1,3 @@
-# [Plain](https://jekyll-theme-plain.github.io/)
+# [jekyll-theme-plain.github.io](https://jekyll-theme-plain.github.io/)
 
-Plain is a plain text-like Jekyll theme for GitHub Pages.
-
-## Usage
-
-Copy the [_config.yml](_config.yml) to your repo and edit it.
+This is an example site for [jekyll-theme-plain](https://github.com/jekyll-theme-plain/jekyll-theme-plain).
