@@ -13,8 +13,8 @@ title: Your awesome title
 
 exclude:
   - Gemfile*
-  - LICENSE
-  - README.md
+  - LICENSE*
+  - README*
 
 permalink: /blog/:title
 
