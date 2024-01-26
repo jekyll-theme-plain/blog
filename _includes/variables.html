@@ -12,11 +12,7 @@
 {%- assign default_title         = "" -%}
 {%- assign default_canonical_url = page.url | absolute_url -%}
 {%- assign default_license_url   = false -%}
-{%- if is_post -%}
-  {%- assign default_stylesheets = "post.css" | split: ", " -%}
-{%- else -%}
-  {%- assign default_stylesheets = "" | split: ", " -%}
-{%- endif -%}
+{%- assign default_stylesheets   = "" | split: ", " -%}
 
 {%- comment -%}
     # Lang.
@@ -58,11 +54,12 @@
 {%- endcomment -%}
 {%- if is_post -%}
   {%-
-      assign title = canonical_url
-      | remove_first: "https://www."
-      | remove_first: "http://www."
-      | remove_first: "https://"
-      | remove_first: "http://"
+      assign title =
+        canonical_url
+        | remove_first: "https://www."
+        | remove_first: "http://www."
+        | remove_first: "https://"
+        | remove_first: "http://"
   -%}
 {%- else -%}
   {%- assign title = page.title -%}
@@ -83,3 +80,6 @@
 {%- assign stylesheets = page.stylesheets -%}
 {%- if stylesheets == nil -%}{%- assign stylesheets = site.stylesheets -%}
 {%- if stylesheets == nil -%}{%- assign stylesheets = default_stylesheets -%}{%- endif -%}{%- endif -%}
+{%- if is_post -%}
+  {%- assign stylesheets = stylesheets | push: "post.css" -%}
+{%- endif -%}
