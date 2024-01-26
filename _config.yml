@@ -33,3 +33,6 @@ defaults:
       type: posts
     values:
       layout: post
+      stylesheets:
+        # - base.css
+        - post.css

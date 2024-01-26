@@ -80,6 +80,3 @@
 {%- assign stylesheets = page.stylesheets -%}
 {%- if stylesheets == nil -%}{%- assign stylesheets = site.stylesheets -%}
 {%- if stylesheets == nil -%}{%- assign stylesheets = default_stylesheets -%}{%- endif -%}{%- endif -%}
-{%- if is_post -%}
-  {%- assign stylesheets = stylesheets | push: "post.css" -%}
-{%- endif -%}
