@@ -22,6 +22,9 @@
     <link rel="license" href="{{- license_url -}}">
     {%- endif -%}
 
-    {%- for stylesheet in stylesheets %}
-    <style>{%- include {{ stylesheet }} %}    </style>
-    {%- endfor -%}
+    {%- if stylesheets.size > 0 %}
+    <style>
+      {%- for stylesheet in stylesheets -%}
+        {%- include {{ stylesheet }} -%}
+      {%- endfor %}    </style>
+    {%- endif -%}
