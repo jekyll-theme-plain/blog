@@ -1,38 +1,20 @@
 remote_theme: jekyll-theme-plain/jekyll-theme-plain
 
 # lang: en
-# charset: utf-8
-# color_scheme: false # disables dark mode sync
-# viewport: width=device-width, initial-scale=1
+# color_scheme: false # disables color scheme sync
 title: Your awesome title
 # url: https://USERNAME.github.io
+# basename: 
 # canonical_url: false # disables canonical URLs
-# license_url: https://creativecommons.org/publicdomain/zero/1.0/
-# stylesheets:
-#   - base.css
+# license_url: 
 
-exclude:
-  - Gemfile*
-  - LICENSE*
-  - README*
-
-permalink: /blog/:title
-
-collections:
-  pages:
-    output: true
-    permalink: /:title/
+permalink: /:title
 
 defaults:
-  - scope:
-      path: ""
-    values:
-      layout: base
   - scope:
       path: ""
       type: posts
     values:
       layout: post
       stylesheets:
-        # - base.css
         - post.css
