@@ -8,6 +8,13 @@ title: Your awesome title
 # canonical_url: false # disables canonical URLs
 # license_url: 
 
+#
+# To use a style sheet, place it in _includes/default.css (or any) and uncomment the following lines:
+#
+
+# stylesheets:
+#   - default.css
+
 permalink: /:title
 
 defaults:
@@ -17,4 +24,5 @@ defaults:
     values:
       layout: post
       stylesheets:
+        # - default.css
         - post.css
