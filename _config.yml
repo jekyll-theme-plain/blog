@@ -4,7 +4,7 @@ remote_theme: jekyll-theme-plain/jekyll-theme-plain
 # color_scheme: false # disables color scheme sync
 title: Your awesome title
 # url: https://USERNAME.github.io
-# basename: 
+# basename: blog
 # canonical_url: false # disables canonical URLs
 # license_url: 
 
