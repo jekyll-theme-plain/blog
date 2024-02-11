@@ -26,3 +26,7 @@ defaults:
       stylesheets:
         # - default.css
         - post.css
+
+exclude:
+  - LICENSE*
+  - README*
