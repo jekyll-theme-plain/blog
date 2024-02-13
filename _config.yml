@@ -23,10 +23,5 @@ defaults:
       type: posts
     values:
       layout: post
-      stylesheets:
-        # - default.css
-        - post.css
-
-exclude:
-  - LICENSE*
-  - README*
+      # stylesheets:
+      #   - default.css
