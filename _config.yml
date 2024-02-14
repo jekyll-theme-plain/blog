@@ -1,15 +1,15 @@
 remote_theme: jekyll-theme-plain/jekyll-theme-plain
 
 # lang: en
-# color_scheme: false # disables color scheme sync
+# color_scheme: false # disables sync with system theme
 title: Your awesome title
-# url: https://USERNAME.github.io
-# basename: blog
+# url: https://YOURDOMAIN.com
+# basename: 
 # canonical_url: false # disables canonical URLs
 # license_url: 
 
 #
-# To use a style sheet, place it in _includes/default.css (or any) and uncomment the following lines:
+# To use a style sheet, place it in _includes/XXX.css and uncomment the following:
 #
 
 # stylesheets:
