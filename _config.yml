@@ -27,7 +27,8 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: plain
+      layout: post
       stylesheets:
         # - XXX.css
-        - plain.css
+        - post.css
+      title: false # sets the URL as the title
