@@ -31,4 +31,4 @@ defaults:
       stylesheets:
         # - XXX.css
         - post.css
-      title: false # sets the URL as the title
+      title: "" # sets the URL as the title
