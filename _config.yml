@@ -15,7 +15,12 @@ title: Your awesome title
 # stylesheets:
 #   - XXX.css
 
-permalink: /:title
+collections:
+  pages:
+    output: true
+    permalink: /:title/
+
+permalink: /:year/:month/:title
 
 defaults:
   - scope:
