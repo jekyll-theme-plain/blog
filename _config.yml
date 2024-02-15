@@ -1,31 +1,26 @@
 remote_theme: jekyll-theme-plain/jekyll-theme-plain
 
-title: Your awesome title
 # lang: en
+# color_scheme: false # disables sync with system theme
+title: Your awesome title
 # url: https://YOURDOMAIN.com
 # basename: 
 # license_url: 
-
-# Disables sync with system theme
-# color_scheme: false
-
-# Disables canonical URLs.
-# canonical_url: false
 
 # To use a style sheet, place it in _includes/XXX.css and uncomment the following lines:
 # stylesheets:
 #   - XXX.css
 
-# Page permalink.
+# Page permalinks
 collections:
   pages:
     output: true
     permalink: /:title/
 
-# Post permalink.
+# Post permalinks
 permalink: /:year/:month/:title
 
-# Front matter defaults for posts.
+# Front matter defaults for posts
 defaults:
   - scope:
       path: ""
